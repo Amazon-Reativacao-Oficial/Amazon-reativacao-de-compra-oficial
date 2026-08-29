@@ -2,666 +2,91 @@
 <html lang="pt-BR">
 <head>
 
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
-<title>Pagamento PIX</title>
+  <meta name="theme-color" content="#edbb81">
 
-<!-- =========================================================
-     PRÉVIA DO LINK — TELEGRAM / WHATSAPP / REDES SOCIAIS
-     ========================================================= -->
+  <title>Pagamento PIX</title>
 
-<meta property="og:type" content="website">
 
-<meta
-  property="og:title"
-  content="Pagamento PIX"
->
+  <!-- =====================================================
+       PRÉVIA DO LINK
+       ===================================================== -->
 
-<meta
-  property="og:description"
-  content="Acesse para realizar o pagamento."
->
+  <meta property="og:type" content="website">
 
-<!--
-     QUANDO TIVER SUA LOGO:
+  <meta
+    property="og:title"
+    content="Pagamento PIX"
+  >
 
-     coloque aqui o endereço público da imagem.
+  <meta
+    property="og:description"
+    content="Acesse para realizar o pagamento."
+  >
 
-     Exemplo:
+  <!--
+    LOGO DA PRÉVIA
 
-     https://seu-site.com/logo.png
+    Esta imagem é INDEPENDENTE da logo da abertura.
 
-     NÃO coloque somente:
-     logo.png
--->
+    Depois coloque aqui a URL pública da imagem
+    que você quer que apareça na prévia do Telegram.
 
-<meta
-  property="og:image"
-  content="COLOQUE_AQUI_O_LINK_PUBLICO_DA_SUA_LOGO"
->
+    Exemplo:
+    https://seusite.com/logo-previa.jpg
+  -->
 
-<meta
-  property="og:image:alt"
-  content="Logo da loja"
->
+  <meta
+    property="og:image"
+    content="COLOQUE_AQUI_A_URL_DA_LOGO_DA_PREVIA"
+  >
 
-<meta
-  name="twitter:card"
-  content="summary_large_image"
->
+  <meta
+    property="og:image:alt"
+    content="Logo da loja"
+  >
 
-<meta
-  name="twitter:title"
-  content="Pagamento PIX"
->
+  <meta
+    property="og:image:width"
+    content="1200"
+  >
 
-<meta
-  name="twitter:description"
-  content="Acesse para realizar o pagamento."
->
+  <meta
+    property="og:image:height"
+    content="630"
+  >
 
-<meta
-  name="twitter:image"
-  content="COLOQUE_AQUI_O_LINK_PUBLICO_DA_SUA_LOGO"
->
 
+  <!-- TWITTER / OUTROS -->
 
-<style>
+  <meta
+    name="twitter:card"
+    content="summary_large_image"
+  >
 
-/* =========================================================
-   CONFIGURAÇÃO DA PÁGINA
-   ========================================================= */
+  <meta
+    name="twitter:title"
+    content="Pagamento PIX"
+  >
 
-* {
-  box-sizing: border-box;
-}
+  <meta
+    name="twitter:description"
+    content="Acesse para realizar o pagamento."
+  >
 
-html,
-body {
+  <meta
+    name="twitter:image"
+    content="COLOQUE_AQUI_A_URL_DA_LOGO_DA_PREVIA"
+  >
 
-  margin: 0;
 
-  padding: 0;
-
-  width: 100%;
-
-  min-height: 100%;
-
-  background: #ffffff;
-
-  color: #111111;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  -webkit-text-size-adjust: 100%;
-
-}
-
-
-/* =========================================================
-   CABEÇALHO
-   ========================================================= */
-
-.header {
-
-  width: 100%;
-
-  height: 135px;
-
-  position: relative;
-
-  display: flex;
-
-  align-items: flex-end;
-
-  justify-content: center;
-
-  padding:
-    0
-    20px
-    22px;
-
-  color: #ffffff;
-
-  background:
-    repeating-linear-gradient(
-      90deg,
-      #edbb81 0px,
-      #edbb81 18px,
-      #e5ae72 18px,
-      #e5ae72 23px
-    );
-
-}
-
-
-.header-title {
-
-  margin: 0;
-
-  text-align: center;
-
-  font-size: 22px;
-
-  line-height: 1.15;
-
-  font-weight: 700;
-
-}
-
-
-.back {
-
-  position: absolute;
-
-  left: 17px;
-
-  bottom: 16px;
-
-  color: #ffffff;
-
-  font-size: 38px;
-
-  line-height: 1;
-
-  font-weight: 300;
-
-}
-
-
-/* =========================================================
-   FAIXA ESCURA
-   ========================================================= */
-
-.dark-bar {
-
-  width: 100%;
-
-  height: 65px;
-
-  background: #283442;
-
-}
-
-
-/* =========================================================
-   ÁREA DE PAGAMENTO
-   ========================================================= */
-
-.payment {
-
-  width: 100%;
-
-  max-width: 520px;
-
-  margin: 0 auto;
-
-  padding:
-    32px
-    18px
-    30px;
-
-  text-align: center;
-
-}
-
-
-/* =========================================================
-   VALOR
-   ========================================================= */
-
-.amount {
-
-  margin:
-    0
-    0
-    28px;
-
-  padding: 0;
-
-  font-size: 26px;
-
-  line-height: 1.2;
-
-  font-weight: 700;
-
-}
-
-
-/* =========================================================
-   QR CODE
-   ========================================================= */
-
-.qrcode {
-
-  width: 190px;
-
-  height: 190px;
-
-  margin:
-    0
-    auto
-    30px;
-
-  padding: 0;
-
-  display: flex;
-
-  align-items: center;
-
-  justify-content: center;
-
-  background: transparent;
-
-  overflow: hidden;
-
-}
-
-
-/*
-   QR Code sem caixa,
-   sem borda e sem quadrado externo.
-*/
-
-.qrcode svg {
-
-  display: block;
-
-  width: 100%;
-
-  height: 100%;
-
-  background: transparent;
-
-}
-
-
-/* =========================================================
-   TÍTULO
-   ========================================================= */
-
-.instructions-title {
-
-  margin:
-    0
-    0
-    13px;
-
-  padding: 0;
-
-  font-size: 19px;
-
-  line-height: 1.25;
-
-  font-weight: 700;
-
-}
-
-
-/* =========================================================
-   TEXTO
-   ========================================================= */
-
-.instructions {
-
-  margin: 0;
-
-  padding: 0;
-
-  font-size: 16px;
-
-  line-height: 1.38;
-
-  color: #111111;
-
-}
-
-
-/* =========================================================
-   NÃO ATUALIZE
-   ========================================================= */
-
-.no-refresh {
-
-  margin:
-    23px
-    0
-    0;
-
-  padding: 0;
-
-  color: #111111;
-
-  font-size: 16px;
-
-}
-
-
-/* =========================================================
-   TEMPO
-   ========================================================= */
-
-.remaining {
-
-  margin:
-    19px
-    0
-    0;
-
-  padding: 0;
-
-  color: #111111;
-
-  font-size: 16px;
-
-}
-
-
-.remaining strong {
-
-  font-weight: 700;
-
-}
-
-
-/* =========================================================
-   BOTÃO COPIAR
-   ========================================================= */
-
-.copy-button {
-
-  width: 100%;
-
-  height: 58px;
-
-  margin:
-    24px
-    0
-    0;
-
-  padding: 0;
-
-  border: none;
-
-  border-radius: 32px;
-
-  background: #ffd814;
-
-  color: #111111;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
-  font-size: 21px;
-
-  font-weight: 400;
-
-  cursor: pointer;
-
-  touch-action: manipulation;
-
-  -webkit-tap-highlight-color: transparent;
-
-}
-
-
-.copy-button:active {
-
-  transform: scale(0.99);
-
-}
-
-
-.copy-button:disabled {
-
-  opacity: 0.55;
-
-  cursor: default;
-
-}
-
-
-/* =========================================================
-   CELULARES PEQUENOS
-   ========================================================= */
-
-@media (max-width: 390px) {
-
-  .header {
-
-    height: 120px;
-
-    padding-bottom: 19px;
-
-  }
-
-
-  .header-title {
-
-    font-size: 20px;
-
-  }
-
-
-  .back {
-
-    left: 15px;
-
-    bottom: 14px;
-
-    font-size: 34px;
-
-  }
-
-
-  .dark-bar {
-
-    height: 55px;
-
-  }
-
-
-  .payment {
-
-    padding:
-      27px
-      16px
-      25px;
-
-  }
-
-
-  .amount {
-
-    font-size: 24px;
-
-    margin-bottom: 24px;
-
-  }
-
-
-  .qrcode {
-
-    width: 170px;
-
-    height: 170px;
-
-    margin-bottom: 25px;
-
-  }
-
-
-  .instructions-title {
-
-    font-size: 18px;
-
-    margin-bottom: 11px;
-
-  }
-
-
-  .instructions {
-
-    font-size: 15px;
-
-  }
-
-
-  .no-refresh {
-
-    margin-top: 20px;
-
-    font-size: 15px;
-
-  }
-
-
-  .remaining {
-
-    margin-top: 16px;
-
-    font-size: 15px;
-
-  }
-
-
-  .copy-button {
-
-    height: 54px;
-
-    margin-top: 21px;
-
-    font-size: 20px;
-
-  }
-
-}
-
-
-/* =========================================================
-   TELAS COM POUCA ALTURA
-   ========================================================= */
-
-@media (max-height: 700px) {
-
-  .header {
-
-    height: 100px;
-
-    padding-bottom: 15px;
-
-  }
-
-
-  .header-title {
-
-    font-size: 18px;
-
-  }
-
-
-  .back {
-
-    bottom: 11px;
-
-    font-size: 30px;
-
-  }
-
-
-  .dark-bar {
-
-    height: 42px;
-
-  }
-
-
-  .payment {
-
-    padding-top: 19px;
-
-  }
-
-
-  .amount {
-
-    font-size: 22px;
-
-    margin-bottom: 18px;
-
-  }
-
-
-  .qrcode {
-
-    width: 140px;
-
-    height: 140px;
-
-    margin-bottom: 18px;
-
-  }
-
-
-  .instructions-title {
-
-    font-size: 16px;
-
-    margin-bottom: 8px;
-
-  }
-
-
-  .instructions {
-
-    font-size: 13px;
-
-    line-height: 1.3;
-
-  }
-
-
-  .no-refresh {
-
-    margin-top: 14px;
-
-    font-size: 13px;
-
-  }
-
-
-  .remaining {
-
-    margin-top: 12px;
-
-    font-size: 13px;
-
-  }
-
-
-  .copy-button {
-
-    height: 46px;
-
-    margin-top: 15px;
-
-    font-size: 17px;
-
-  }
-
-}
-
-</style>
+  <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -669,563 +94,136 @@ body {
 <body>
 
 
-<!-- =========================================================
-     CABEÇALHO
-     ========================================================= -->
-
-<header class="header">
-
-  <span class="back">
-    ←
-  </span>
-
-  <h1 class="header-title">
-    Autorizar forma de pagamento
-  </h1>
-
-</header>
-
-
-<div class="dark-bar"></div>
-
-
-<!-- =========================================================
-     PAGAMENTO
-     ========================================================= -->
-
-<main class="payment">
-
-
-  <h2
-    id="amount"
-    class="amount"
-  >
-    Total a pagar: R$ 0,00
-  </h2>
-
+  <!-- =====================================================
+       ABERTURA COM LOGO
+       ===================================================== -->
 
   <div
-    id="qrcode"
-    class="qrcode"
-  ></div>
-
-
-  <h2 class="instructions-title">
-    Escaneie ou copie o código para pagar
-  </h2>
-
-
-  <p class="instructions">
-
-    Escaneie o QR code com a câmera do seu celular
-    <br>
-
-    para pagar no aplicativo do seu banco ou copie o
-    <br>
-
-    código clicando no botão abaixo.
-
-  </p>
-
-
-  <p class="no-refresh">
-    Não atualize a página.
-  </p>
-
-
-  <p class="remaining">
-
-    Tempo restante:
-
-    <strong id="timer">
-      10:00
-    </strong>
-
-  </p>
-
-
-  <button
-    id="copyButton"
-    class="copy-button"
-    type="button"
+    id="splash"
+    class="splash"
   >
-    Copiar código
-  </button>
 
+    <!--
+      LOGO DA ABERTURA
 
-</main>
+      Coloque o arquivo da sua logo no mesmo diretório
+      com o nome:
 
+      logo.png
+    -->
 
-<!-- =========================================================
-     GERADOR DE QR CODE
-     ========================================================= -->
+    <img
+      src="logo.png"
+      alt="Logo"
+    >
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+  </div>
 
 
-<script>
+  <!-- =====================================================
+       CABEÇALHO
+       ===================================================== -->
 
-/* ============================================================
-   CONFIGURAÇÃO DA COBRANÇA
-   ============================================================
+  <header class="header">
 
-   ALTERE SOMENTE ESTES 3 CAMPOS:
+    <span class="back">
+      ←
+    </span>
 
-   productName = nome do produto
+    <h1 class="header-title">
+      Autorizar forma de pagamento
+    </h1>
 
-   amount = valor
+  </header>
 
-   pixCode = PIX copia e cola completo
 
-   ============================================================ */
+  <!-- =====================================================
+       FAIXA ESCURA
+       ===================================================== -->
 
-const CONFIG = {
+  <div class="dark-bar"></div>
 
-  productName:
-    "Meu Produto",
 
+  <!-- =====================================================
+       PAGAMENTO
+       ===================================================== -->
 
-  amount:
-    0.00,
+  <main class="payment">
 
 
-  pixCode:
-    "COLE_AQUI_SEU_PIX_COPIA_E_COLA"
+    <h2
+      id="amount"
+      class="amount"
+    >
+      Total a pagar: R$ 0,00
+    </h2>
 
-};
 
+    <!-- QR CODE -->
 
-/* ============================================================
-   ELEMENTOS
-   ============================================================ */
+    <div
+      id="qrcode"
+      class="qrcode"
+    ></div>
 
-const amountElement =
-  document.getElementById(
-    "amount"
-  );
 
+    <h2 class="instructions-title">
+      Escaneie ou copie o código para pagar
+    </h2>
 
-const qrElement =
-  document.getElementById(
-    "qrcode"
-  );
 
+    <p class="instructions">
 
-const timerElement =
-  document.getElementById(
-    "timer"
-  );
+      Escaneie o QR code com a câmera do seu celular
+      <br>
 
+      para pagar no aplicativo do seu banco ou copie o
+      <br>
 
-const copyButton =
-  document.getElementById(
-    "copyButton"
-  );
+      código clicando no botão abaixo.
 
+    </p>
 
-const pixCode =
-  String(
-    CONFIG.pixCode || ""
-  ).trim();
 
+    <p class="no-refresh">
+      Não atualize a página.
+    </p>
 
-/* ============================================================
-   TÍTULO
-   ============================================================ */
 
-document.title =
-  CONFIG.productName ||
-  "Pagamento PIX";
+    <p class="remaining">
 
+      Tempo restante:
 
-/* ============================================================
-   VALOR
-   ============================================================ */
+      <strong id="timer">
+        10:00
+      </strong>
 
-function formatMoney(value) {
+    </p>
 
-  const number =
-    Number(value);
 
+    <button
+      id="copyButton"
+      class="copy-button"
+      type="button"
+    >
+      Copiar código
+    </button>
 
-  if (
-    !Number.isFinite(number)
-  ) {
 
-    return "R$ 0,00";
+  </main>
 
-  }
 
+  <!-- =====================================================
+       QR CODE
+       ===================================================== -->
 
-  return number.toLocaleString(
-    "pt-BR",
-    {
-      style:
-        "currency",
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 
-      currency:
-        "BRL"
-    }
-  );
 
-}
+  <!-- SEU JAVASCRIPT -->
 
+  <script src="script.js"></script>
 
-amountElement.textContent =
-  "Total a pagar: " +
-  formatMoney(
-    CONFIG.amount
-  );
-
-
-/* ============================================================
-   QR CODE
-   ============================================================ */
-
-function renderQrCode() {
-
-  qrElement.innerHTML =
-    "";
-
-
-  if (
-    !pixCode ||
-    pixCode ===
-      "COLE_AQUI_SEU_PIX_COPIA_E_COLA"
-  ) {
-
-    return;
-
-  }
-
-
-  if (
-    typeof qrcode !==
-    "function"
-  ) {
-
-    return;
-
-  }
-
-
-  try {
-
-    const qr =
-      qrcode(
-        0,
-        "M"
-      );
-
-
-    qr.addData(
-      pixCode
-    );
-
-
-    qr.make();
-
-
-    qrElement.innerHTML =
-      qr.createSvgTag({
-
-        cellSize:
-          5,
-
-        margin:
-          0,
-
-        scalable:
-          true
-
-      });
-
-
-  } catch (error) {
-
-    console.error(
-      error
-    );
-
-  }
-
-}
-
-
-/* ============================================================
-   COPIAR PIX
-   ============================================================ */
-
-function fallbackCopy(text) {
-
-  const textarea =
-    document.createElement(
-      "textarea"
-    );
-
-
-  textarea.value =
-    text;
-
-
-  textarea.setAttribute(
-    "readonly",
-    ""
-  );
-
-
-  textarea.style.position =
-    "fixed";
-
-
-  textarea.style.left =
-    "-9999px";
-
-
-  textarea.style.top =
-    "0";
-
-
-  textarea.style.opacity =
-    "0";
-
-
-  document.body.appendChild(
-    textarea
-  );
-
-
-  textarea.focus();
-
-
-  textarea.select();
-
-
-  textarea.setSelectionRange(
-    0,
-    textarea.value.length
-  );
-
-
-  const success =
-    document.execCommand(
-      "copy"
-    );
-
-
-  textarea.remove();
-
-
-  if (!success) {
-
-    throw new Error(
-      "Falha ao copiar"
-    );
-
-  }
-
-}
-
-
-async function copyPix() {
-
-  if (!pixCode) {
-
-    return;
-
-  }
-
-
-  if (
-    Date.now() >=
-    expirationTime
-  ) {
-
-    return;
-
-  }
-
-
-  try {
-
-    if (
-      navigator.clipboard &&
-      window.isSecureContext
-    ) {
-
-      await navigator.clipboard.writeText(
-        pixCode
-      );
-
-    } else {
-
-      fallbackCopy(
-        pixCode
-      );
-
-    }
-
-
-    copyButton.textContent =
-      "Copiado!";
-
-
-    setTimeout(
-      function () {
-
-        copyButton.textContent =
-          "Copiar código";
-
-      },
-      1600
-    );
-
-
-  } catch (error) {
-
-    try {
-
-      fallbackCopy(
-        pixCode
-      );
-
-
-      copyButton.textContent =
-        "Copiado!";
-
-
-      setTimeout(
-        function () {
-
-          copyButton.textContent =
-            "Copiar código";
-
-        },
-        1600
-      );
-
-
-    } catch (error2) {
-
-      alert(
-        "Não foi possível copiar o código PIX."
-      );
-
-    }
-
-  }
-
-}
-
-
-copyButton.addEventListener(
-  "click",
-  copyPix
-);
-
-
-/* ============================================================
-   CONTADOR
-   ============================================================ */
-
-const expirationTime =
-  Date.now() +
-  (
-    10 *
-    60 *
-    1000
-  );
-
-
-function updateTimer() {
-
-  const remaining =
-    Math.max(
-      0,
-      expirationTime -
-      Date.now()
-    );
-
-
-  const totalSeconds =
-    Math.ceil(
-      remaining /
-      1000
-    );
-
-
-  const minutes =
-    Math.floor(
-      totalSeconds /
-      60
-    );
-
-
-  const seconds =
-    totalSeconds %
-    60;
-
-
-  timerElement.textContent =
-
-    String(
-      minutes
-    ).padStart(
-      2,
-      "0"
-    )
-
-    +
-
-    ":"
-
-    +
-
-    String(
-      seconds
-    ).padStart(
-      2,
-      "0"
-    );
-
-
-  if (
-    remaining <= 0
-  ) {
-
-    timerElement.textContent =
-      "00:00";
-
-
-    copyButton.disabled =
-      true;
-
-
-    clearInterval(
-      timerInterval
-    );
-
-  }
-
-}
-
-
-/* ============================================================
-   INICIAR
-   ============================================================ */
-
-renderQrCode();
-
-updateTimer();
-
-
-const timerInterval =
-  setInterval(
-    updateTimer,
-    250
-  );
-
-</script>
 
 </body>
 </html>
