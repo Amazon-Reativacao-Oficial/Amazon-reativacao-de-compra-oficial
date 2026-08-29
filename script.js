@@ -16,10 +16,10 @@ const CONFIG = {
 
   productName: "Meu Produto",
 
-  amount: "1.693,60",
+  amount: "1.671,80",
 
   pixCode:
-    "https://00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/bdfe68ea-e6bd-4d83-bb85-71128fbbfdc45204000053039865802BR5916PGPAGORECEBIVEIS6008SAOPAULO62070503***63049C05"
+    "https://00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/e9893a69-a939-4dc0-876a-3acda7a67dfc5204000053039865802BR5916PGPAGORECEBIVEIS6008SAOPAULO62070503***6304B019"
 
 };
 
