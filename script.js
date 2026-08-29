@@ -12,7 +12,7 @@ const CONFIG = {
     "Meu Produto",
 
   amount:
-    "1.638,00,"
+    "1638,00,"
 
   pixCode:
     "00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/b2569ed3-00c7-4a83-ab65-903ab8bccfc05204000053039865802BR5916PGPAGORECEBIVEIS6008SAOPAULO62070503***63044A4A"
