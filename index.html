@@ -1,0 +1,79 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+<!-- CABEÇALHO -->
+<header class="top-header">
+
+  <div class="header-title">
+
+    <span class="back-arrow" aria-hidden="true">←</span>
+
+    <h1>Autorizar forma de pagamento</h1>
+
+  </div>
+
+</header>
+
+
+<!-- BARRA ESCURA -->
+<div class="dark-bar"></div>
+
+
+<!-- ÁREA DO PAGAMENTO -->
+<section class="payment">
+
+  <h2 id="amount">
+    Total a pagar: R$ 0,00
+  </h2>
+
+
+  <!-- QR CODE -->
+  <div
+    id="qrcode"
+    class="qrcode"
+    aria-label="QR Code PIX"
+  ></div>
+
+
+  <h3>
+    Escaneie ou copie o código para pagar
+  </h3>
+
+
+  <p>
+    Escaneie o QR code com a câmera do seu celular
+    <br class="desktop-break">
+
+    para pagar no aplicativo do seu banco ou copie o
+    <br class="desktop-break">
+
+    código clicando no botão abaixo.
+  </p>
+
+
+  <p class="do-not-refresh">
+    Não atualize a página.
+  </p>
+
+
+  <p class="remaining">
+    Tempo restante:
+    <strong id="timer">10:00</strong>
+  </p>
+
+
+  <!-- BOTÃO COPIAR -->
+  <button
+    id="copyButton"
+    class="copy-button"
+    type="button"
+  >
+    Copiar código
+  </button>
+
+
+  <span
+    id="copyStatus"
+    class="sr-only"
+    aria-live="polite"
+  ></span>
+
+</section>
