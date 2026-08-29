@@ -4,98 +4,63 @@
 
 html,
 body {
-
   margin: 0;
   padding: 0;
-
   width: 100%;
   min-height: 100%;
-
   background: #ffffff;
-
   color: #111111;
-
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
-
+  font-family: Arial, Helvetica, sans-serif;
   -webkit-text-size-adjust: 100%;
 }
 
-
-/* =========================================================
+/* =========================
    LOGO DE ABERTURA
-   ========================================================= */
+   ========================= */
 
 .splash {
-
   position: fixed;
-
   inset: 0;
-
   z-index: 9999;
-
   width: 100%;
   height: 100%;
-
   display: flex;
-
   align-items: center;
   justify-content: center;
-
   background: #ffffff;
-
   opacity: 1;
-
-  transition:
-    opacity 0.4s ease;
+  transition: opacity 0.4s ease;
 }
 
-
 .splash img {
-
   display: block;
-
   width: 180px;
-
   max-width: 55vw;
-
   height: auto;
-
   object-fit: contain;
 }
 
-
 .splash.hide {
-
   opacity: 0;
-
   pointer-events: none;
 }
 
 
-/* =========================================================
-   CABEÇALHO
-   ========================================================= */
+/* =========================
+   CABEÇALHO LARANJA
+   ========================= */
 
 .header {
-
   width: 100%;
-
-  height: 135px;
+  height: 115px;
 
   position: relative;
 
   display: flex;
-
   align-items: flex-end;
   justify-content: center;
 
-  padding:
-    0
-    20px
-    22px;
+  padding: 0 18px 19px;
 
   color: #ffffff;
 
@@ -109,110 +74,79 @@ body {
     );
 }
 
-
 .header-title {
-
   margin: 0;
-
   text-align: center;
 
-  font-size: 22px;
-
+  font-size: 21px;
   line-height: 1.15;
-
   font-weight: 700;
 }
 
-
 .back {
-
   position: absolute;
 
-  left: 17px;
-
-  bottom: 16px;
+  left: 18px;
+  bottom: 14px;
 
   color: #ffffff;
 
-  font-size: 38px;
-
+  font-size: 36px;
   line-height: 1;
-
   font-weight: 300;
 }
 
 
-/* =========================================================
+/* =========================
    FAIXA ESCURA
-   ========================================================= */
+   ========================= */
 
 .dark-bar {
-
   width: 100%;
-
-  height: 65px;
-
+  height: 48px;
   background: #283442;
 }
 
 
-/* =========================================================
-   PAGAMENTO
-   ========================================================= */
+/* =========================
+   ÁREA DO PAGAMENTO
+   ========================= */
 
 .payment {
-
   width: 100%;
-
   max-width: 520px;
 
   margin: 0 auto;
 
-  padding:
-    32px
-    18px
-    30px;
+  padding: 25px 16px 25px;
 
   text-align: center;
 }
 
 
-/* =========================================================
+/* =========================
    VALOR
-   ========================================================= */
+   ========================= */
 
 .amount {
-
-  margin:
-    0
-    0
-    28px;
-
+  margin: 0 0 20px;
   padding: 0;
 
-  font-size: 26px;
-
+  font-size: 25px;
   line-height: 1.2;
-
   font-weight: 700;
 }
 
 
-/* =========================================================
-   QR CODE — SEM CAIXA
-   ========================================================= */
+/* =========================
+   QR CODE
+   ========================= */
 
 .qrcode {
+  width: 175px;
+  height: 175px;
 
-  width: 190px;
-
-  height: 190px;
-
-  margin:
-    0
-    auto
-    30px;
-
+  margin: 0 auto 21px;
   padding: 0;
 
   display: flex;
@@ -225,122 +159,83 @@ body {
   overflow: hidden;
 }
 
-
 .qrcode svg {
-
   display: block;
 
   width: 100%;
-
   height: 100%;
 
   background: transparent;
 }
 
 
-/* =========================================================
+/* =========================
    TEXTOS
-   ========================================================= */
+   ========================= */
 
 .instructions-title {
-
-  margin:
-    0
-    0
-    13px;
-
+  margin: 0 0 10px;
   padding: 0;
 
-  font-size: 19px;
-
+  font-size: 18px;
   line-height: 1.25;
-
   font-weight: 700;
 }
-
 
 .instructions {
-
   margin: 0;
-
   padding: 0;
 
-  font-size: 16px;
-
-  line-height: 1.38;
+  font-size: 15px;
+  line-height: 1.32;
 
   color: #111111;
 }
-
 
 .no-refresh {
-
-  margin:
-    23px
-    0
-    0;
-
+  margin: 18px 0 0;
   padding: 0;
 
   color: #111111;
 
-  font-size: 16px;
+  font-size: 15px;
 }
-
 
 .remaining {
-
-  margin:
-    19px
-    0
-    0;
-
+  margin: 14px 0 0;
   padding: 0;
 
   color: #111111;
 
-  font-size: 16px;
+  font-size: 15px;
 }
 
-
 .remaining strong {
-
   font-weight: 700;
 }
 
 
-/* =========================================================
+/* =========================
    BOTÃO COPIAR
-   ========================================================= */
+   ========================= */
 
 .copy-button {
-
   width: 100%;
+  height: 54px;
 
-  height: 58px;
-
-  margin:
-    24px
-    0
-    0;
-
+  margin: 18px 0 0;
   padding: 0;
 
   border: none;
-
-  border-radius: 32px;
+  border-radius: 30px;
 
   background: #ffd814;
 
   color: #111111;
 
-  font-family:
-    Arial,
-    Helvetica,
-    sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 
-  font-size: 21px;
-
+  font-size: 20px;
   font-weight: 400;
 
   cursor: pointer;
@@ -350,229 +245,146 @@ body {
   -webkit-tap-highlight-color: transparent;
 }
 
-
 .copy-button:active {
-
   transform: scale(0.99);
 }
 
-
 .copy-button:disabled {
-
   opacity: 0.55;
-
   cursor: default;
 }
 
 
-/* =========================================================
-   CELULARES PEQUENOS
-   ========================================================= */
+/* =========================
+   CELULAR
+   ========================= */
 
 @media (max-width: 390px) {
 
   .header {
-
-    height: 120px;
-
-    padding-bottom: 19px;
+    height: 105px;
+    padding-bottom: 17px;
   }
-
 
   .header-title {
-
-    font-size: 20px;
+    font-size: 19px;
   }
 
-
   .back {
-
     left: 15px;
-
-    bottom: 14px;
-
-    font-size: 34px;
+    bottom: 13px;
+    font-size: 33px;
   }
-
 
   .dark-bar {
-
-    height: 55px;
+    height: 43px;
   }
-
 
   .payment {
-
-    padding:
-      27px
-      16px
-      25px;
+    padding: 22px 15px 22px;
   }
-
 
   .amount {
-
-    font-size: 24px;
-
-    margin-bottom: 24px;
-  }
-
-
-  .qrcode {
-
-    width: 170px;
-
-    height: 170px;
-
-    margin-bottom: 25px;
-  }
-
-
-  .instructions-title {
-
-    font-size: 18px;
-
-    margin-bottom: 11px;
-  }
-
-
-  .instructions {
-
-    font-size: 15px;
-  }
-
-
-  .no-refresh {
-
-    margin-top: 20px;
-
-    font-size: 15px;
-  }
-
-
-  .remaining {
-
-    margin-top: 16px;
-
-    font-size: 15px;
-  }
-
-
-  .copy-button {
-
-    height: 54px;
-
-    margin-top: 21px;
-
-    font-size: 20px;
-  }
-
-
-  .splash img {
-
-    width: 160px;
-  }
-
-}
-
-
-/* =========================================================
-   TELAS BAIXAS
-   ========================================================= */
-
-@media (max-height: 700px) {
-
-  .header {
-
-    height: 100px;
-
-    padding-bottom: 15px;
-  }
-
-
-  .header-title {
-
-    font-size: 18px;
-  }
-
-
-  .back {
-
-    bottom: 11px;
-
-    font-size: 30px;
-  }
-
-
-  .dark-bar {
-
-    height: 42px;
-  }
-
-
-  .payment {
-
-    padding-top: 19px;
-  }
-
-
-  .amount {
-
-    font-size: 22px;
-
+    font-size: 23px;
     margin-bottom: 18px;
   }
 
-
   .qrcode {
-
-    width: 140px;
-
-    height: 140px;
-
-    margin-bottom: 18px;
+    width: 165px;
+    height: 165px;
+    margin-bottom: 19px;
   }
-
 
   .instructions-title {
-
-    font-size: 16px;
-
-    margin-bottom: 8px;
+    font-size: 17px;
+    margin-bottom: 9px;
   }
 
-
   .instructions {
-
-    font-size: 13px;
-
+    font-size: 14px;
     line-height: 1.3;
   }
 
-
   .no-refresh {
-
-    margin-top: 14px;
-
-    font-size: 13px;
+    margin-top: 16px;
+    font-size: 14px;
   }
-
 
   .remaining {
+    margin-top: 13px;
+    font-size: 14px;
+  }
 
-    margin-top: 12px;
+  .copy-button {
+    height: 52px;
+    margin-top: 17px;
+    font-size: 19px;
+  }
+}
 
+
+/* =========================
+   CELULAR COM TELA BAIXA
+   ========================= */
+
+@media (max-height: 750px) {
+
+  .header {
+    height: 95px;
+    padding-bottom: 14px;
+  }
+
+  .header-title {
+    font-size: 18px;
+  }
+
+  .back {
+    bottom: 11px;
+    font-size: 30px;
+  }
+
+  .dark-bar {
+    height: 40px;
+  }
+
+  .payment {
+    padding-top: 18px;
+  }
+
+  .amount {
+    font-size: 22px;
+    margin-bottom: 16px;
+  }
+
+  .qrcode {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 17px;
+  }
+
+  .instructions-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .instructions {
+    font-size: 13px;
+    line-height: 1.28;
+  }
+
+  .no-refresh {
+    margin-top: 13px;
     font-size: 13px;
   }
 
-
-  .copy-button {
-
-    height: 46px;
-
-    margin-top: 15px;
-
-    font-size: 17px;
+  .remaining {
+    margin-top: 11px;
+    font-size: 13px;
   }
 
+  .copy-button {
+    height: 48px;
+    margin-top: 14px;
+    font-size: 18px;
+  }
 }
