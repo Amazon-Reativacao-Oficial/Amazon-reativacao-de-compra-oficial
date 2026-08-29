@@ -1,12 +1,8 @@
 /* ============================================================
-   CONFIGURAÇÃO DA COBRANÇA
+   CONFIGURAÇÃO
    ============================================================
 
-   ALTERE SOMENTE:
-
-   productName = nome do produto
-   amount      = valor
-   pixCode     = PIX copia e cola
+   ALTERE SOMENTE ESTES 3 CAMPOS.
 
    ============================================================ */
 
@@ -39,6 +35,9 @@ const timerElement =
 
 const copyButton =
   document.getElementById("copyButton");
+
+const splash =
+  document.getElementById("splash");
 
 const pixCode =
   String(
@@ -216,7 +215,6 @@ function fallbackCopy(text) {
 
   textarea.focus();
 
-
   textarea.select();
 
 
@@ -344,18 +342,16 @@ copyButton.addEventListener(
 
 
 /* ============================================================
-   ABERTURA DA LOGO — 2 SEGUNDOS
+   LOGO DE ABERTURA
+   ============================================================
+
+   FICA 2 SEGUNDOS NA TELA.
+
    ============================================================ */
 
 window.addEventListener(
   "load",
   function () {
-
-    const splash =
-      document.getElementById(
-        "splash"
-      );
-
 
     setTimeout(
       function () {
