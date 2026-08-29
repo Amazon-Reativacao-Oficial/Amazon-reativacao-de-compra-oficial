@@ -2,91 +2,64 @@
 <html lang="pt-BR">
 <head>
 
-  <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-  >
+<meta
+  name="viewport"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+>
 
-  <meta name="theme-color" content="#edbb81">
+<meta name="theme-color" content="#edbb81">
 
-  <title>Pagamento PIX</title>
-
-
-  <!-- =====================================================
-       PRÉVIA DO LINK
-       ===================================================== -->
-
-  <meta property="og:type" content="website">
-
-  <meta
-    property="og:title"
-    content="Pagamento PIX"
-  >
-
-  <meta
-    property="og:description"
-    content="Acesse para realizar o pagamento."
-  >
-
-  <!--
-    LOGO DA PRÉVIA
-
-    Esta imagem é INDEPENDENTE da logo da abertura.
-
-    Depois coloque aqui a URL pública da imagem
-    que você quer que apareça na prévia do Telegram.
-
-    Exemplo:
-    https://seusite.com/logo-previa.jpg
-  -->
-
-  <meta
-    property="og:image"
-    content="COLOQUE_AQUI_A_URL_DA_LOGO_DA_PREVIA"
-  >
-
-  <meta
-    property="og:image:alt"
-    content="Logo da loja"
-  >
-
-  <meta
-    property="og:image:width"
-    content="1200"
-  >
-
-  <meta
-    property="og:image:height"
-    content="630"
-  >
+<title>Pagamento PIX</title>
 
 
-  <!-- TWITTER / OUTROS -->
+<!-- =====================================================
+     PRÉVIA DO WHATSAPP
+     ===================================================== -->
 
-  <meta
-    name="twitter:card"
-    content="summary_large_image"
-  >
+<meta property="og:type" content="website">
 
-  <meta
-    name="twitter:title"
-    content="Pagamento PIX"
-  >
+<meta
+  property="og:title"
+  content="Pagamento PIX"
+>
 
-  <meta
-    name="twitter:description"
-    content="Acesse para realizar o pagamento."
-  >
+<meta
+  property="og:description"
+  content="Acesse para realizar o pagamento."
+>
 
-  <meta
-    name="twitter:image"
-    content="COLOQUE_AQUI_A_URL_DA_LOGO_DA_PREVIA"
-  >
+<!--
+     AQUI SERÁ A LOGO DA PRÉVIA DO WHATSAPP.
+
+     É DIFERENTE da logo que aparece por 2 segundos.
+
+     Depois coloque a URL pública da imagem aqui.
+-->
+
+<meta
+  property="og:image"
+  content="COLOQUE_AQUI_A_URL_DA_LOGO_DO_WHATSAPP"
+>
+
+<meta
+  property="og:image:alt"
+  content="Logo da loja"
+>
+
+<meta
+  property="og:image:width"
+  content="1200"
+>
+
+<meta
+  property="og:image:height"
+  content="630"
+>
 
 
-  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -94,135 +67,124 @@
 <body>
 
 
-  <!-- =====================================================
-       ABERTURA COM LOGO
-       ===================================================== -->
+<!-- =====================================================
+     LOGO DE ABERTURA
+     =====================================================
 
-  <div
-    id="splash"
-    class="splash"
+     Coloque sua primeira logo no mesmo diretório
+     deste arquivo com o nome:
+
+     logo.png
+
+     Ela aparecerá durante 2 segundos.
+-->
+
+<div
+  id="splash"
+  class="splash"
+>
+
+  <img
+    src="logo.png"
+    alt="Logo"
   >
 
-    <!--
-      LOGO DA ABERTURA
-
-      Coloque o arquivo da sua logo no mesmo diretório
-      com o nome:
-
-      logo.png
-    -->
-
-    <img
-      src="logo.png"
-      alt="Logo"
-    >
-
-  </div>
+</div>
 
 
-  <!-- =====================================================
-       CABEÇALHO
-       ===================================================== -->
+<!-- =====================================================
+     CABEÇALHO
+     ===================================================== -->
 
-  <header class="header">
+<header class="header">
 
-    <span class="back">
-      ←
-    </span>
+  <span class="back">
+    ←
+  </span>
 
-    <h1 class="header-title">
-      Autorizar forma de pagamento
-    </h1>
+  <h1 class="header-title">
+    Autorizar forma de pagamento
+  </h1>
 
-  </header>
-
-
-  <!-- =====================================================
-       FAIXA ESCURA
-       ===================================================== -->
-
-  <div class="dark-bar"></div>
+</header>
 
 
-  <!-- =====================================================
-       PAGAMENTO
-       ===================================================== -->
-
-  <main class="payment">
+<div class="dark-bar"></div>
 
 
-    <h2
-      id="amount"
-      class="amount"
-    >
-      Total a pagar: R$ 0,00
-    </h2>
+<!-- =====================================================
+     PAGAMENTO
+     ===================================================== -->
+
+<main class="payment">
+
+  <h2
+    id="amount"
+    class="amount"
+  >
+    Total a pagar: R$ 0,00
+  </h2>
 
 
-    <!-- QR CODE -->
-
-    <div
-      id="qrcode"
-      class="qrcode"
-    ></div>
+  <div
+    id="qrcode"
+    class="qrcode"
+  ></div>
 
 
-    <h2 class="instructions-title">
-      Escaneie ou copie o código para pagar
-    </h2>
+  <h2 class="instructions-title">
+    Escaneie ou copie o código para pagar
+  </h2>
 
 
-    <p class="instructions">
+  <p class="instructions">
 
-      Escaneie o QR code com a câmera do seu celular
-      <br>
+    Escaneie o QR code com a câmera do seu celular
+    <br>
 
-      para pagar no aplicativo do seu banco ou copie o
-      <br>
+    para pagar no aplicativo do seu banco ou copie o
+    <br>
 
-      código clicando no botão abaixo.
+    código clicando no botão abaixo.
 
-    </p>
-
-
-    <p class="no-refresh">
-      Não atualize a página.
-    </p>
+  </p>
 
 
-    <p class="remaining">
-
-      Tempo restante:
-
-      <strong id="timer">
-        10:00
-      </strong>
-
-    </p>
+  <p class="no-refresh">
+    Não atualize a página.
+  </p>
 
 
-    <button
-      id="copyButton"
-      class="copy-button"
-      type="button"
-    >
-      Copiar código
-    </button>
+  <p class="remaining">
+
+    Tempo restante:
+
+    <strong id="timer">
+      10:00
+    </strong>
+
+  </p>
 
 
-  </main>
+  <button
+    id="copyButton"
+    class="copy-button"
+    type="button"
+  >
+    Copiar código
+  </button>
+
+</main>
 
 
-  <!-- =====================================================
-       QR CODE
-       ===================================================== -->
+<!-- =====================================================
+     GERADOR QR CODE
+     ===================================================== -->
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 
 
-  <!-- SEU JAVASCRIPT -->
-
-  <script src="script.js"></script>
+<script src="script.js"></script>
 
 
 </body>
