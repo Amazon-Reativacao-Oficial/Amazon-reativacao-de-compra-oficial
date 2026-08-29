@@ -2,20 +2,24 @@
    CONFIGURAÇÃO
    ============================================================
 
-   ALTERE SOMENTE ESTES 3 CAMPOS.
+   ALTERE SOMENTE ESTES 3 CAMPOS:
+
+   productName = nome do produto
+
+   amount = valor que aparecerá na tela
+
+   pixCode = PIX COPIA E COLA completo
 
    ============================================================ */
 
 const CONFIG = {
 
-  productName:
-    "Meu Produto",
+  productName: "Meu Produto",
 
-  amount:
-    1638.00,
+  amount: "1.638,00",
 
   pixCode:
-    "00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/b2569ed3-00c7-4a83-ab65-903ab8bccfc05204000053039865802BR5916PGPAGORECEBIVEIS6008SAOPAULO62070503***63044A4A"
+    "00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/b87c91ca-317e-4831-8579-2a4ea1e06eea5204000053039865802BR5915MSPVCOMDISTLTDA6008SAOPAULO62070503***6304EED9"
 
 };
 
@@ -36,13 +40,8 @@ const timerElement =
 const copyButton =
   document.getElementById("copyButton");
 
-const splash =
-  document.getElementById("splash");
-
-const pixCode =
-  String(
-    CONFIG.pixCode || ""
-  ).trim();
+const copyStatus =
+  document.getElementById("copyStatus");
 
 
 /* ============================================================
@@ -50,77 +49,47 @@ const pixCode =
    ============================================================ */
 
 document.title =
-  CONFIG.productName ||
-  "Pagamento PIX";
+  CONFIG.productName || "Pagamento PIX";
 
 
 /* ============================================================
-   VALOR
+   MOSTRAR VALOR
    ============================================================ */
 
-function formatMoney(value) {
+function renderAmount() {
 
-  const number =
-    Number(value);
-
-
-  if (
-    !Number.isFinite(number)
-  ) {
-
-    return "R$ 0,00";
-
-  }
-
-
-  return number.toLocaleString(
-    "pt-BR",
-    {
-
-      style:
-        "currency",
-
-      currency:
-        "BRL"
-
-    }
-  );
+  amountElement.textContent =
+    `Total a pagar: R$ ${CONFIG.amount}`;
 
 }
 
 
-amountElement.textContent =
-  "Total a pagar: " +
-  formatMoney(
-    CONFIG.amount
-  );
-
-
 /* ============================================================
-   QR CODE
+   GERAR QR CODE
    ============================================================ */
 
 function renderQrCode() {
 
-  qrElement.innerHTML =
-    "";
+  qrElement.innerHTML = "";
+
+  const pixCode =
+    CONFIG.pixCode.trim();
 
 
-  if (
-    !pixCode ||
-    pixCode ===
-      "COLE_AQUI_SEU_PIX_COPIA_E_COLA"
-  ) {
+  if (!pixCode) {
+
+    qrElement.textContent =
+      "Código PIX não configurado.";
 
     return;
 
   }
 
 
-  if (
-    typeof qrcode !==
-    "function"
-  ) {
+  if (typeof qrcode !== "function") {
+
+    qrElement.textContent =
+      "Não foi possível carregar o QR Code.";
 
     return;
 
@@ -130,16 +99,10 @@ function renderQrCode() {
   try {
 
     const qr =
-      qrcode(
-        0,
-        "M"
-      );
+      qrcode(0, "M");
 
 
-    qr.addData(
-      pixCode
-    );
-
+    qr.addData(pixCode);
 
     qr.make();
 
@@ -147,23 +110,76 @@ function renderQrCode() {
     qrElement.innerHTML =
       qr.createSvgTag({
 
-        cellSize:
-          5,
+        cellSize: 5,
 
-        margin:
-          0,
+        margin: 0,
 
-        scalable:
-          true
+        scalable: true
 
       });
 
 
   } catch (error) {
 
-    console.error(
-      error
+    console.error(error);
+
+    qrElement.textContent =
+      "Código PIX inválido.";
+
+  }
+
+}
+
+
+/* ============================================================
+   CONTADOR — 10 MINUTOS
+   ============================================================ */
+
+const expirationTime =
+  Date.now() + (10 * 60 * 1000);
+
+
+function updateTimer() {
+
+  const remainingMs =
+    Math.max(
+      0,
+      expirationTime - Date.now()
     );
+
+
+  const totalSeconds =
+    Math.ceil(
+      remainingMs / 1000
+    );
+
+
+  const minutes =
+    Math.floor(
+      totalSeconds / 60
+    );
+
+
+  const seconds =
+    totalSeconds % 60;
+
+
+  timerElement.textContent =
+    `${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+
+
+  if (remainingMs <= 0) {
+
+    timerElement.textContent =
+      "00:00";
+
+    copyButton.disabled =
+      true;
+
+    copyStatus.textContent =
+      "";
+
+    clearInterval(timerInterval);
 
   }
 
@@ -174,12 +190,76 @@ function renderQrCode() {
    COPIAR PIX
    ============================================================ */
 
+async function copyPixCode() {
+
+  if (
+    Date.now() >= expirationTime
+  ) {
+
+    return;
+
+  }
+
+
+  const pixCode =
+    CONFIG.pixCode.trim();
+
+
+  try {
+
+    /*
+      iPhone / iPad / Android / Chrome / Safari
+    */
+
+    if (
+      navigator.clipboard &&
+      window.isSecureContext
+    ) {
+
+      await navigator.clipboard.writeText(
+        pixCode
+      );
+
+    } else {
+
+      fallbackCopy(pixCode);
+
+    }
+
+
+    copyStatus.textContent =
+      "Código PIX copiado.";
+
+
+  } catch (error) {
+
+    try {
+
+      fallbackCopy(pixCode);
+
+      copyStatus.textContent =
+        "Código PIX copiado.";
+
+    } catch (fallbackError) {
+
+      copyStatus.textContent =
+        "Não foi possível copiar automaticamente.";
+
+    }
+
+  }
+
+}
+
+
+/* ============================================================
+   CÓPIA ALTERNATIVA
+   ============================================================ */
+
 function fallbackCopy(text) {
 
   const textarea =
-    document.createElement(
-      "textarea"
-    );
+    document.createElement("textarea");
 
 
   textarea.value =
@@ -195,14 +275,11 @@ function fallbackCopy(text) {
   textarea.style.position =
     "fixed";
 
-
   textarea.style.left =
     "-9999px";
 
-
   textarea.style.top =
     "0";
-
 
   textarea.style.opacity =
     "0";
@@ -217,7 +294,6 @@ function fallbackCopy(text) {
 
   textarea.select();
 
-
   textarea.setSelectionRange(
     0,
     textarea.value.length
@@ -225,9 +301,7 @@ function fallbackCopy(text) {
 
 
   const success =
-    document.execCommand(
-      "copy"
-    );
+    document.execCommand("copy");
 
 
   textarea.remove();
@@ -244,229 +318,21 @@ function fallbackCopy(text) {
 }
 
 
-async function copyPix() {
-
-  if (!pixCode) {
-
-    return;
-
-  }
-
-
-  if (
-    Date.now() >=
-    expirationTime
-  ) {
-
-    return;
-
-  }
-
-
-  try {
-
-    if (
-      navigator.clipboard &&
-      window.isSecureContext
-    ) {
-
-      await navigator.clipboard.writeText(
-        pixCode
-      );
-
-    } else {
-
-      fallbackCopy(
-        pixCode
-      );
-
-    }
-
-
-    copyButton.textContent =
-      "Copiado!";
-
-
-    setTimeout(
-      function () {
-
-        copyButton.textContent =
-          "Copiar código";
-
-      },
-      1600
-    );
-
-
-  } catch (error) {
-
-    try {
-
-      fallbackCopy(
-        pixCode
-      );
-
-
-      copyButton.textContent =
-        "Copiado!";
-
-
-      setTimeout(
-        function () {
-
-          copyButton.textContent =
-            "Copiar código";
-
-        },
-        1600
-      );
-
-
-    } catch (error2) {
-
-      alert(
-        "Não foi possível copiar o código PIX."
-      );
-
-    }
-
-  }
-
-}
-
+/* ============================================================
+   BOTÃO
+   ============================================================ */
 
 copyButton.addEventListener(
   "click",
-  copyPix
+  copyPixCode
 );
-
-
-/* ============================================================
-   LOGO DE ABERTURA
-   ============================================================
-
-   FICA 2 SEGUNDOS NA TELA.
-
-   ============================================================ */
-
-window.addEventListener(
-  "load",
-  function () {
-
-    setTimeout(
-      function () {
-
-        splash.classList.add(
-          "hide"
-        );
-
-
-        setTimeout(
-          function () {
-
-            splash.remove();
-
-          },
-          400
-        );
-
-      },
-      2000
-    );
-
-  }
-);
-
-
-/* ============================================================
-   CONTADOR — 10 MINUTOS
-   ============================================================ */
-
-const expirationTime =
-  Date.now() +
-  (
-    10 *
-    60 *
-    1000
-  );
-
-
-function updateTimer() {
-
-  const remaining =
-    Math.max(
-      0,
-      expirationTime -
-      Date.now()
-    );
-
-
-  const totalSeconds =
-    Math.ceil(
-      remaining /
-      1000
-    );
-
-
-  const minutes =
-    Math.floor(
-      totalSeconds /
-      60
-    );
-
-
-  const seconds =
-    totalSeconds %
-    60;
-
-
-  timerElement.textContent =
-
-    String(
-      minutes
-    ).padStart(
-      2,
-      "0"
-    )
-
-    +
-
-    ":"
-
-    +
-
-    String(
-      seconds
-    ).padStart(
-      2,
-      "0"
-    );
-
-
-  if (
-    remaining <= 0
-  ) {
-
-    timerElement.textContent =
-      "00:00";
-
-
-    copyButton.disabled =
-      true;
-
-
-    clearInterval(
-      timerInterval
-    );
-
-  }
-
-}
 
 
 /* ============================================================
    INICIAR
    ============================================================ */
+
+renderAmount();
 
 renderQrCode();
 
