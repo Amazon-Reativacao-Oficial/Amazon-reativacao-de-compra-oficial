@@ -1,0 +1,461 @@
+* {
+  box-sizing: border-box;
+}
+
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+
+  background: #ffffff;
+}
+
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+
+  color: #111111;
+
+  -webkit-text-size-adjust: 100%;
+
+  text-rendering: optimizeLegibility;
+}
+
+
+.page {
+  min-height: 100vh;
+
+  background: #ffffff;
+}
+
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
+
+.top-header {
+
+  height: 274px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+
+      #edbb81 0,
+      #edbb81 25px,
+
+      #e5ae72 25px,
+      #e5ae72 31px
+    );
+
+  position: relative;
+
+  color: #ffffff;
+}
+
+
+.header-title {
+
+  position: absolute;
+
+  left: 30px;
+  right: 30px;
+
+  bottom: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+
+.header-title h1 {
+
+  margin: 0;
+
+  font-size: 43px;
+
+  line-height: 1.1;
+
+  font-weight: 700;
+
+  text-align: center;
+}
+
+
+/* SETA */
+
+.back-arrow {
+
+  position: absolute;
+
+  left: 0;
+
+  top: 50%;
+
+  transform: translateY(-53%);
+
+  font-size: 64px;
+
+  line-height: 1;
+
+  font-weight: 300;
+}
+
+
+/* =========================================================
+   BARRA ESCURA
+   ========================================================= */
+
+.dark-bar {
+
+  height: 149px;
+
+  background: #283442;
+}
+
+
+/* =========================================================
+   PAGAMENTO
+   ========================================================= */
+
+.payment {
+
+  width: 100%;
+
+  max-width: 1170px;
+
+  margin: 0 auto;
+
+  padding: 105px 48px 120px;
+
+  text-align: center;
+}
+
+
+/* VALOR */
+
+#amount {
+
+  margin: 0 0 125px;
+
+  font-size: 41px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+
+/* =========================================================
+   QR CODE
+   ========================================================= */
+
+.qrcode {
+
+  width: 410px;
+
+  height: 410px;
+
+  margin: 0 auto 120px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  overflow: hidden;
+}
+
+
+.qrcode svg {
+
+  width: 100%;
+
+  height: 100%;
+
+  display: block;
+}
+
+
+/* =========================================================
+   TEXTO
+   ========================================================= */
+
+.payment h3 {
+
+  margin: 0 0 38px;
+
+  font-size: 38px;
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+
+.payment p {
+
+  margin: 0;
+
+  font-size: 35px;
+
+  line-height: 1.48;
+
+  font-weight: 400;
+}
+
+
+/* NÃO ATUALIZE */
+
+.do-not-refresh {
+
+  margin-top: 92px !important;
+}
+
+
+/* TEMPO */
+
+.remaining {
+
+  margin-top: 83px !important;
+}
+
+
+/* =========================================================
+   BOTÃO COPIAR
+   ========================================================= */
+
+.copy-button {
+
+  width: 100%;
+
+  height: 102px;
+
+  margin-top: 90px;
+
+  border: 0;
+
+  border-radius: 60px;
+
+  background: #ffd814;
+
+  color: #111111;
+
+  font-family: Arial, Helvetica, sans-serif;
+
+  font-size: 36px;
+
+  font-weight: 400;
+
+  cursor: pointer;
+
+  -webkit-tap-highlight-color: transparent;
+
+  touch-action: manipulation;
+}
+
+
+.copy-button:active {
+
+  transform: scale(0.995);
+}
+
+
+.copy-button:disabled {
+
+  opacity: 0.6;
+
+  cursor: default;
+}
+
+
+/* =========================================================
+   ACESSIBILIDADE
+   ========================================================= */
+
+.sr-only {
+
+  position: absolute;
+
+  width: 1px;
+
+  height: 1px;
+
+  padding: 0;
+
+  margin: -1px;
+
+  overflow: hidden;
+
+  clip: rect(0, 0, 0, 0);
+
+  white-space: nowrap;
+
+  border: 0;
+}
+
+
+/* =========================================================
+   CELULAR
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+
+  .top-header {
+
+    height: 194px;
+  }
+
+
+  .header-title {
+
+    left: 23px;
+
+    right: 23px;
+
+    bottom: 34px;
+  }
+
+
+  .header-title h1 {
+
+    font-size: 25px;
+  }
+
+
+  .back-arrow {
+
+    left: 0;
+
+    font-size: 48px;
+  }
+
+
+  .dark-bar {
+
+    height: 107px;
+  }
+
+
+  .payment {
+
+    padding: 74px 34px 70px;
+  }
+
+
+  #amount {
+
+    margin-bottom: 104px;
+
+    font-size: 30px;
+  }
+
+
+  .qrcode {
+
+    width: min(292px, 72vw);
+
+    height: min(292px, 72vw);
+
+    margin-bottom: 100px;
+  }
+
+
+  .payment h3 {
+
+    margin-bottom: 28px;
+
+    font-size: 25px;
+  }
+
+
+  .payment p {
+
+    font-size: 24px;
+
+    line-height: 1.48;
+  }
+
+
+  .desktop-break {
+
+    display: none;
+  }
+
+
+  .do-not-refresh {
+
+    margin-top: 66px !important;
+  }
+
+
+  .remaining {
+
+    margin-top: 64px !important;
+  }
+
+
+  .copy-button {
+
+    height: 102px;
+
+    margin-top: 72px;
+
+    font-size: 30px;
+  }
+
+}
+
+
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
+
+@media (max-width: 390px) {
+
+
+  .payment {
+
+    padding-left: 24px;
+
+    padding-right: 24px;
+  }
+
+
+  .header-title h1 {
+
+    font-size: 23px;
+  }
+
+
+  #amount {
+
+    font-size: 28px;
+  }
+
+
+  .payment h3 {
+
+    font-size: 23px;
+  }
+
+
+  .payment p {
+
+    font-size: 21px;
+  }
+
+
+  .copy-button {
+
+    font-size: 27px;
+  }
+
+}
