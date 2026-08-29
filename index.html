@@ -1,25 +1,81 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
+
 <meta charset="UTF-8">
 
 <meta
   name="viewport"
-  content="width=device-width,
-           initial-scale=1,
-           maximum-scale=1,
-           viewport-fit=cover"
+  content="width=device-width, initial-scale=1.0, viewport-fit=cover"
 >
-
-<meta name="theme-color" content="#edbb81">
 
 <title>Pagamento PIX</title>
 
+<!-- =========================================================
+     PRÉVIA DO LINK — TELEGRAM / WHATSAPP / REDES SOCIAIS
+     ========================================================= -->
+
+<meta property="og:type" content="website">
+
+<meta
+  property="og:title"
+  content="Pagamento PIX"
+>
+
+<meta
+  property="og:description"
+  content="Acesse para realizar o pagamento."
+>
+
+<!--
+     QUANDO TIVER SUA LOGO:
+
+     coloque aqui o endereço público da imagem.
+
+     Exemplo:
+
+     https://seu-site.com/logo.png
+
+     NÃO coloque somente:
+     logo.png
+-->
+
+<meta
+  property="og:image"
+  content="COLOQUE_AQUI_O_LINK_PUBLICO_DA_SUA_LOGO"
+>
+
+<meta
+  property="og:image:alt"
+  content="Logo da loja"
+>
+
+<meta
+  name="twitter:card"
+  content="summary_large_image"
+>
+
+<meta
+  name="twitter:title"
+  content="Pagamento PIX"
+>
+
+<meta
+  name="twitter:description"
+  content="Acesse para realizar o pagamento."
+>
+
+<meta
+  name="twitter:image"
+  content="COLOQUE_AQUI_O_LINK_PUBLICO_DA_SUA_LOGO"
+>
+
+
 <style>
 
-/* ============================================================
-   CONFIGURAÇÃO GERAL
-   ============================================================ */
+/* =========================================================
+   CONFIGURAÇÃO DA PÁGINA
+   ========================================================= */
 
 * {
   box-sizing: border-box;
@@ -27,12 +83,17 @@
 
 html,
 body {
+
   margin: 0;
+
   padding: 0;
+
   width: 100%;
+
   min-height: 100%;
 
   background: #ffffff;
+
   color: #111111;
 
   font-family:
@@ -41,18 +102,19 @@ body {
     sans-serif;
 
   -webkit-text-size-adjust: 100%;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    CABEÇALHO
-   ============================================================ */
+   ========================================================= */
 
 .header {
 
   width: 100%;
 
-  height: 150px;
+  height: 135px;
 
   position: relative;
 
@@ -64,8 +126,8 @@ body {
 
   padding:
     0
-    18px
-    25px;
+    20px
+    22px;
 
   color: #ffffff;
 
@@ -77,6 +139,7 @@ body {
       #e5ae72 18px,
       #e5ae72 23px
     );
+
 }
 
 
@@ -84,15 +147,14 @@ body {
 
   margin: 0;
 
-  padding: 0;
-
   text-align: center;
 
-  font-size: 23px;
+  font-size: 22px;
 
   line-height: 1.15;
 
   font-weight: 700;
+
 }
 
 
@@ -100,37 +162,39 @@ body {
 
   position: absolute;
 
-  left: 20px;
+  left: 17px;
 
-  bottom: 20px;
+  bottom: 16px;
 
   color: #ffffff;
 
-  font-size: 39px;
+  font-size: 38px;
 
   line-height: 1;
 
   font-weight: 300;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    FAIXA ESCURA
-   ============================================================ */
+   ========================================================= */
 
 .dark-bar {
 
   width: 100%;
 
-  height: 78px;
+  height: 65px;
 
   background: #283442;
+
 }
 
 
-/* ============================================================
-   ÁREA DO PAGAMENTO
-   ============================================================ */
+/* =========================================================
+   ÁREA DE PAGAMENTO
+   ========================================================= */
 
 .payment {
 
@@ -141,45 +205,51 @@ body {
   margin: 0 auto;
 
   padding:
-    42px
-    20px
-    35px;
+    32px
+    18px
+    30px;
 
   text-align: center;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    VALOR
-   ============================================================ */
+   ========================================================= */
 
 .amount {
 
-  margin: 0 0 42px;
+  margin:
+    0
+    0
+    28px;
 
   padding: 0;
 
-  font-size: 28px;
+  font-size: 26px;
 
   line-height: 1.2;
 
   font-weight: 700;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    QR CODE
-   ============================================================ */
+   ========================================================= */
 
 .qrcode {
 
-  width: 215px;
+  width: 190px;
 
-  height: 215px;
+  height: 190px;
 
   margin:
-    0 auto
-    42px;
+    0
+    auto
+    30px;
 
   padding: 0;
 
@@ -189,56 +259,56 @@ body {
 
   justify-content: center;
 
+  background: transparent;
+
   overflow: hidden;
 
-  background: transparent;
 }
 
 
 /*
-   O QR fica somente com os módulos.
-   Não existe caixa, borda ou fundo
-   adicional em volta dele.
+   QR Code sem caixa,
+   sem borda e sem quadrado externo.
 */
 
 .qrcode svg {
+
+  display: block;
 
   width: 100%;
 
   height: 100%;
 
-  display: block;
-
   background: transparent;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    TÍTULO
-   ============================================================ */
+   ========================================================= */
 
 .instructions-title {
 
   margin:
     0
     0
-    18px;
+    13px;
 
   padding: 0;
 
-  color: #111111;
-
-  font-size: 21px;
+  font-size: 19px;
 
   line-height: 1.25;
 
   font-weight: 700;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    TEXTO
-   ============================================================ */
+   ========================================================= */
 
 .instructions {
 
@@ -246,24 +316,23 @@ body {
 
   padding: 0;
 
+  font-size: 16px;
+
+  line-height: 1.38;
+
   color: #111111;
 
-  font-size: 18px;
-
-  line-height: 1.4;
-
-  font-weight: 400;
 }
 
 
-/* ============================================================
+/* =========================================================
    NÃO ATUALIZE
-   ============================================================ */
+   ========================================================= */
 
 .no-refresh {
 
   margin:
-    30px
+    23px
     0
     0;
 
@@ -271,22 +340,19 @@ body {
 
   color: #111111;
 
-  font-size: 18px;
+  font-size: 16px;
 
-  line-height: 1.3;
-
-  font-weight: 400;
 }
 
 
-/* ============================================================
-   CONTADOR
-   ============================================================ */
+/* =========================================================
+   TEMPO
+   ========================================================= */
 
 .remaining {
 
   margin:
-    28px
+    19px
     0
     0;
 
@@ -294,32 +360,30 @@ body {
 
   color: #111111;
 
-  font-size: 18px;
+  font-size: 16px;
 
-  line-height: 1.3;
-
-  font-weight: 400;
 }
 
 
 .remaining strong {
 
   font-weight: 700;
+
 }
 
 
-/* ============================================================
+/* =========================================================
    BOTÃO COPIAR
-   ============================================================ */
+   ========================================================= */
 
 .copy-button {
 
   width: 100%;
 
-  height: 66px;
+  height: 58px;
 
   margin:
-    34px
+    24px
     0
     0;
 
@@ -327,7 +391,7 @@ body {
 
   border: none;
 
-  border-radius: 40px;
+  border-radius: 32px;
 
   background: #ffd814;
 
@@ -338,25 +402,23 @@ body {
     Helvetica,
     sans-serif;
 
-  font-size: 23px;
+  font-size: 21px;
 
   font-weight: 400;
 
-  text-align: center;
-
   cursor: pointer;
 
-  outline: none;
+  touch-action: manipulation;
 
   -webkit-tap-highlight-color: transparent;
 
-  touch-action: manipulation;
 }
 
 
 .copy-button:active {
 
   transform: scale(0.99);
+
 }
 
 
@@ -365,216 +427,102 @@ body {
   opacity: 0.55;
 
   cursor: default;
+
 }
 
 
-/* ============================================================
-   MENSAGEM DE CÓPIA
-   ============================================================ */
-
-.copy-status {
-
-  min-height: 18px;
-
-  margin:
-    9px
-    0
-    0;
-
-  padding: 0;
-
-  color: #111111;
-
-  font-size: 13px;
-
-  line-height: 1.2;
-}
-
-
-/* ============================================================
-   CELULARES MENORES
-   ============================================================ */
+/* =========================================================
+   CELULARES PEQUENOS
+   ========================================================= */
 
 @media (max-width: 390px) {
 
   .header {
 
-    height: 135px;
+    height: 120px;
 
-    padding-bottom: 22px;
+    padding-bottom: 19px;
+
   }
 
 
   .header-title {
 
-    font-size: 21px;
+    font-size: 20px;
+
   }
 
 
   .back {
 
-    left: 16px;
+    left: 15px;
 
-    bottom: 17px;
+    bottom: 14px;
 
-    font-size: 35px;
+    font-size: 34px;
+
   }
 
 
   .dark-bar {
 
-    height: 68px;
+    height: 55px;
+
   }
 
 
   .payment {
 
     padding:
-      34px
-      17px
-      30px;
+      27px
+      16px
+      25px;
+
   }
 
 
   .amount {
 
-    margin-bottom: 34px;
+    font-size: 24px;
 
-    font-size: 25px;
+    margin-bottom: 24px;
+
   }
 
 
   .qrcode {
 
-    width: 190px;
+    width: 170px;
 
-    height: 190px;
+    height: 170px;
 
-    margin-bottom: 34px;
+    margin-bottom: 25px;
+
   }
 
 
   .instructions-title {
 
-    margin-bottom: 14px;
+    font-size: 18px;
 
-    font-size: 19px;
+    margin-bottom: 11px;
+
   }
 
 
   .instructions {
 
-    font-size: 16px;
+    font-size: 15px;
 
-    line-height: 1.35;
   }
 
 
   .no-refresh {
 
-    margin-top: 25px;
+    margin-top: 20px;
 
-    font-size: 16px;
-  }
+    font-size: 15px;
 
-
-  .remaining {
-
-    margin-top: 23px;
-
-    font-size: 16px;
-  }
-
-
-  .copy-button {
-
-    height: 59px;
-
-    margin-top: 27px;
-
-    font-size: 21px;
-  }
-
-}
-
-
-/* ============================================================
-   TELAS MUITO BAIXAS
-   ============================================================ */
-
-@media (max-height: 700px) {
-
-  .header {
-
-    height: 115px;
-
-    padding-bottom: 18px;
-  }
-
-
-  .header-title {
-
-    font-size: 19px;
-  }
-
-
-  .back {
-
-    bottom: 13px;
-
-    font-size: 31px;
-  }
-
-
-  .dark-bar {
-
-    height: 50px;
-  }
-
-
-  .payment {
-
-    padding-top: 25px;
-  }
-
-
-  .amount {
-
-    margin-bottom: 25px;
-
-    font-size: 23px;
-  }
-
-
-  .qrcode {
-
-    width: 155px;
-
-    height: 155px;
-
-    margin-bottom: 25px;
-  }
-
-
-  .instructions-title {
-
-    font-size: 17px;
-
-    margin-bottom: 10px;
-  }
-
-
-  .instructions {
-
-    font-size: 14px;
-  }
-
-
-  .no-refresh {
-
-    margin-top: 18px;
-
-    font-size: 14px;
   }
 
 
@@ -582,23 +530,133 @@ body {
 
     margin-top: 16px;
 
-    font-size: 14px;
+    font-size: 15px;
+
   }
 
 
   .copy-button {
 
-    height: 50px;
+    height: 54px;
 
-    margin-top: 19px;
+    margin-top: 21px;
 
-    font-size: 18px;
+    font-size: 20px;
+
+  }
+
+}
+
+
+/* =========================================================
+   TELAS COM POUCA ALTURA
+   ========================================================= */
+
+@media (max-height: 700px) {
+
+  .header {
+
+    height: 100px;
+
+    padding-bottom: 15px;
+
   }
 
 
-  .copy-status {
+  .header-title {
 
-    display: none;
+    font-size: 18px;
+
+  }
+
+
+  .back {
+
+    bottom: 11px;
+
+    font-size: 30px;
+
+  }
+
+
+  .dark-bar {
+
+    height: 42px;
+
+  }
+
+
+  .payment {
+
+    padding-top: 19px;
+
+  }
+
+
+  .amount {
+
+    font-size: 22px;
+
+    margin-bottom: 18px;
+
+  }
+
+
+  .qrcode {
+
+    width: 140px;
+
+    height: 140px;
+
+    margin-bottom: 18px;
+
+  }
+
+
+  .instructions-title {
+
+    font-size: 16px;
+
+    margin-bottom: 8px;
+
+  }
+
+
+  .instructions {
+
+    font-size: 13px;
+
+    line-height: 1.3;
+
+  }
+
+
+  .no-refresh {
+
+    margin-top: 14px;
+
+    font-size: 13px;
+
+  }
+
+
+  .remaining {
+
+    margin-top: 12px;
+
+    font-size: 13px;
+
+  }
+
+
+  .copy-button {
+
+    height: 46px;
+
+    margin-top: 15px;
+
+    font-size: 17px;
+
   }
 
 }
@@ -611,13 +669,15 @@ body {
 <body>
 
 
-<!-- ==========================================================
+<!-- =========================================================
      CABEÇALHO
-     ========================================================== -->
+     ========================================================= -->
 
 <header class="header">
 
-  <span class="back">←</span>
+  <span class="back">
+    ←
+  </span>
 
   <h1 class="header-title">
     Autorizar forma de pagamento
@@ -626,21 +686,15 @@ body {
 </header>
 
 
-<!-- ==========================================================
-     FAIXA ESCURA
-     ========================================================== -->
-
 <div class="dark-bar"></div>
 
 
-<!-- ==========================================================
+<!-- =========================================================
      PAGAMENTO
-     ========================================================== -->
+     ========================================================= -->
 
 <main class="payment">
 
-
-  <!-- VALOR -->
 
   <h2
     id="amount"
@@ -650,22 +704,16 @@ body {
   </h2>
 
 
-  <!-- QR CODE -->
-
   <div
     id="qrcode"
     class="qrcode"
   ></div>
 
 
-  <!-- TÍTULO -->
-
   <h2 class="instructions-title">
     Escaneie ou copie o código para pagar
   </h2>
 
-
-  <!-- TEXTO -->
 
   <p class="instructions">
 
@@ -680,14 +728,10 @@ body {
   </p>
 
 
-  <!-- NÃO ATUALIZE -->
-
   <p class="no-refresh">
     Não atualize a página.
   </p>
 
-
-  <!-- CONTADOR -->
 
   <p class="remaining">
 
@@ -700,8 +744,6 @@ body {
   </p>
 
 
-  <!-- BOTÃO -->
-
   <button
     id="copyButton"
     class="copy-button"
@@ -711,20 +753,12 @@ body {
   </button>
 
 
-  <!-- STATUS -->
-
-  <p
-    id="copyStatus"
-    class="copy-status"
-  ></p>
-
-
 </main>
 
 
-<!-- ==========================================================
-     BIBLIOTECA QR CODE
-     ========================================================== -->
+<!-- =========================================================
+     GERADOR DE QR CODE
+     ========================================================= -->
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
 
@@ -732,19 +766,18 @@ body {
 <script>
 
 /* ============================================================
-   CONFIGURAÇÃO
+   CONFIGURAÇÃO DA COBRANÇA
    ============================================================
 
-   ALTERE SOMENTE ESTES 3 CAMPOS.
+   ALTERE SOMENTE ESTES 3 CAMPOS:
 
    productName = nome do produto
 
    amount = valor
 
-   pixCode = PIX COPIA E COLA
+   pixCode = PIX copia e cola completo
 
    ============================================================ */
-
 
 const CONFIG = {
 
@@ -790,12 +823,6 @@ const copyButton =
   );
 
 
-const copyStatus =
-  document.getElementById(
-    "copyStatus"
-  );
-
-
 const pixCode =
   String(
     CONFIG.pixCode || ""
@@ -833,13 +860,11 @@ function formatMoney(value) {
   return number.toLocaleString(
     "pt-BR",
     {
-
       style:
         "currency",
 
       currency:
         "BRL"
-
     }
   );
 
@@ -854,7 +879,7 @@ amountElement.textContent =
 
 
 /* ============================================================
-   GERAR QR CODE
+   QR CODE
    ============================================================ */
 
 function renderQrCode() {
@@ -1004,9 +1029,7 @@ function fallbackCopy(text) {
 
 async function copyPix() {
 
-  if (
-    !pixCode
-  ) {
+  if (!pixCode) {
 
     return;
 
@@ -1043,7 +1066,19 @@ async function copyPix() {
     }
 
 
-    showCopied();
+    copyButton.textContent =
+      "Copiado!";
+
+
+    setTimeout(
+      function () {
+
+        copyButton.textContent =
+          "Copiar código";
+
+      },
+      1600
+    );
 
 
   } catch (error) {
@@ -1054,39 +1089,31 @@ async function copyPix() {
         pixCode
       );
 
-      showCopied();
+
+      copyButton.textContent =
+        "Copiado!";
+
+
+      setTimeout(
+        function () {
+
+          copyButton.textContent =
+            "Copiar código";
+
+        },
+        1600
+      );
+
 
     } catch (error2) {
 
-      copyStatus.textContent =
-        "Não foi possível copiar.";
+      alert(
+        "Não foi possível copiar o código PIX."
+      );
 
     }
 
   }
-
-}
-
-
-function showCopied() {
-
-  copyButton.textContent =
-    "Código copiado!";
-
-
-  copyStatus.textContent =
-    "";
-
-
-  setTimeout(
-    function () {
-
-      copyButton.textContent =
-        "Copiar código";
-
-    },
-    1600
-  );
 
 }
 
@@ -1099,9 +1126,6 @@ copyButton.addEventListener(
 
 /* ============================================================
    CONTADOR
-   ============================================================
-
-   10 MINUTOS
    ============================================================ */
 
 const expirationTime =
@@ -1151,7 +1175,9 @@ function updateTimer() {
       "0"
     )
 
-    + ":"
+    +
+
+    ":"
 
     +
 
