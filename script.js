@@ -16,10 +16,10 @@ const CONFIG = {
 
   productName: "Meu Produto",
 
-  amount: "1.699,03",
+  amount: "0,00",
 
   pixCode:
-    "00020101021226780014br.gov.bcb.pix2556pix.ebanx.com/qr/v2/7F64198034BAD138431583A28B10A68C637C5204000053039865802BR5905EBANX6008CURITIBA62070503***63043C35"
+    ""
 
 };
 
