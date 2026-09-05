@@ -1,390 +1,560 @@
+/* ============================================================
+   CONFIGURAÇÃO GERAL
+   ============================================================ */
+
 * {
   box-sizing: border-box;
 }
+
 
 html,
 body {
   margin: 0;
   padding: 0;
+
   width: 100%;
   min-height: 100%;
+
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
   background: #ffffff;
+
   color: #111111;
-  font-family: Arial, Helvetica, sans-serif;
-  -webkit-text-size-adjust: 100%;
 }
 
-/* =========================
+
+/* ============================================================
    LOGO DE ABERTURA
-   ========================= */
+   ============================================================ */
 
 .splash {
+
   position: fixed;
+
   inset: 0;
+
   z-index: 9999;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+
   background: #ffffff;
-  opacity: 1;
-  transition: opacity 0.4s ease;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
 }
 
+
 .splash img {
-  display: block;
-  width: 180px;
-  max-width: 55vw;
+
+  width: min(220px, 55vw);
+
   height: auto;
+
   object-fit: contain;
 }
 
-.splash.hide {
+
+.splash.hidden {
+
   opacity: 0;
+
+  visibility: hidden;
+
   pointer-events: none;
 }
 
 
-/* =========================
-   CABEÇALHO LARANJA
-   ========================= */
+/* ============================================================
+   TOPO MARROM
+   ============================================================ */
 
 .header {
+
   width: 100%;
-  height: 115px;
 
-  position: relative;
+  height: 82px;
 
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
+  background-color: #edbb81;
 
-  padding: 0 18px 19px;
-
-  color: #ffffff;
-
-  background:
+  background-image:
     repeating-linear-gradient(
       90deg,
-      #edbb81 0px,
-      #edbb81 18px,
-      #e5ae72 18px,
-      #e5ae72 23px
+      rgba(180, 120, 55, 0.16) 0px,
+      rgba(180, 120, 55, 0.16) 10px,
+      transparent 10px,
+      transparent 48px
     );
-}
-
-.header-title {
-  margin: 0;
-  text-align: center;
-
-  font-size: 21px;
-  line-height: 1.15;
-  font-weight: 700;
-}
-
-.back {
-  position: absolute;
-
-  left: 18px;
-  bottom: 14px;
-
-  color: #ffffff;
-
-  font-size: 36px;
-  line-height: 1;
-  font-weight: 300;
-}
-
-
-/* =========================
-   FAIXA ESCURA
-   ========================= */
-
-.dark-bar {
-  width: 100%;
-  height: 48px;
-  background: #283442;
-}
-
-
-/* =========================
-   ÁREA DO PAGAMENTO
-   ========================= */
-
-.payment {
-  width: 100%;
-  max-width: 520px;
-
-  margin: 0 auto;
-
-  padding: 25px 16px 25px;
-
-  text-align: center;
-}
-
-
-/* =========================
-   VALOR
-   ========================= */
-
-.amount {
-  margin: 0 0 20px;
-  padding: 0;
-
-  font-size: 25px;
-  line-height: 1.2;
-  font-weight: 700;
-}
-
-
-/* =========================
-   QR CODE
-   ========================= */
-
-.qrcode {
-  width: 175px;
-  height: 175px;
-
-  margin: 0 auto 21px;
-  padding: 0;
 
   display: flex;
 
   align-items: center;
+
   justify-content: center;
 
-  background: transparent;
+  padding:
+    0 18px;
+}
+
+
+/* ============================================================
+   TÍTULO
+   ============================================================ */
+
+.header-title {
+
+  margin: 0;
+
+  color: #ffffff;
+
+  font-size: clamp(
+    20px,
+    5vw,
+    34px
+  );
+
+  font-weight: 700;
+
+  text-align: center;
+
+  line-height: 1.1;
+}
+
+
+/* ============================================================
+   BARRA ESCURA
+   ============================================================ */
+
+.dark-bar {
+
+  width: 100%;
+
+  height: 56px;
+
+  background: #293544;
+}
+
+
+/* ============================================================
+   ÁREA DE PAGAMENTO
+   ============================================================ */
+
+.payment {
+
+  width: 100%;
+
+  max-width: 850px;
+
+  margin: 0 auto;
+
+  padding:
+    42px 24px 70px;
+
+  text-align: center;
+}
+
+
+/* ============================================================
+   VALOR
+   ============================================================ */
+
+.amount {
+
+  margin: 0 0 34px;
+
+  font-size: clamp(
+    28px,
+    5.5vw,
+    46px
+  );
+
+  line-height: 1.15;
+
+  font-weight: 700;
+
+  color: #111111;
+}
+
+
+/* ============================================================
+   QR CODE
+   ============================================================ */
+
+.qrcode {
+
+  width: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  margin:
+    0 auto 36px;
 
   overflow: hidden;
 }
 
+
 .qrcode svg {
+
+  display: block;
+
+  width: min(
+    310px,
+    68vw
+  ) !important;
+
+  height: auto !important;
+
+  max-width: 100%;
+}
+
+
+/* ============================================================
+   TÍTULO DAS INSTRUÇÕES
+   ============================================================ */
+
+.instructions-title {
+
+  margin:
+    0 0 18px;
+
+  font-size: clamp(
+    22px,
+    4.5vw,
+    36px
+  );
+
+  line-height: 1.2;
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   TEXTO
+   ============================================================ */
+
+.instructions {
+
+  margin:
+    0 auto 30px;
+
+  max-width: 720px;
+
+  font-size: clamp(
+    17px,
+    3.5vw,
+    25px
+  );
+
+  line-height: 1.45;
+
+  font-weight: 400;
+}
+
+
+/* ============================================================
+   NÃO ATUALIZE
+   ============================================================ */
+
+.no-refresh {
+
+  margin:
+    0 0 28px;
+
+  font-size: clamp(
+    17px,
+    3.5vw,
+    25px
+  );
+
+  line-height: 1.3;
+}
+
+
+/* ============================================================
+   TEMPO
+   ============================================================ */
+
+.remaining {
+
+  margin:
+    0 0 34px;
+
+  font-size: clamp(
+    17px,
+    3.5vw,
+    25px
+  );
+
+  line-height: 1.3;
+}
+
+
+.remaining strong {
+
+  font-weight: 700;
+}
+
+
+/* ============================================================
+   BOTÃO COPIAR
+   ============================================================ */
+
+.copy-button {
+
   display: block;
 
   width: 100%;
-  height: 100%;
 
-  background: transparent;
-}
+  max-width: 760px;
 
+  min-height: 76px;
 
-/* =========================
-   TEXTOS
-   ========================= */
+  margin: 0 auto;
 
-.instructions-title {
-  margin: 0 0 10px;
-  padding: 0;
+  padding:
+    16px 25px;
 
-  font-size: 18px;
-  line-height: 1.25;
-  font-weight: 700;
-}
+  border: 0;
 
-.instructions {
-  margin: 0;
-  padding: 0;
+  border-radius: 45px;
 
-  font-size: 15px;
-  line-height: 1.32;
-
-  color: #111111;
-}
-
-.no-refresh {
-  margin: 18px 0 0;
-  padding: 0;
+  background: #ffd83d;
 
   color: #111111;
 
-  font-size: 15px;
-}
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
 
-.remaining {
-  margin: 14px 0 0;
-  padding: 0;
+  font-size: clamp(
+    22px,
+    4vw,
+    32px
+  );
 
-  color: #111111;
-
-  font-size: 15px;
-}
-
-.remaining strong {
-  font-weight: 700;
-}
-
-
-/* =========================
-   BOTÃO COPIAR
-   ========================= */
-
-.copy-button {
-  width: 100%;
-  height: 54px;
-
-  margin: 18px 0 0;
-  padding: 0;
-
-  border: none;
-  border-radius: 30px;
-
-  background: #ffd814;
-
-  color: #111111;
-
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-size: 20px;
   font-weight: 400;
 
   cursor: pointer;
 
-  touch-action: manipulation;
+  outline: none;
 
-  -webkit-tap-highlight-color: transparent;
+  transition:
+    border 0.12s ease,
+    box-shadow 0.12s ease,
+    transform 0.08s ease;
 }
 
+
+/* ============================================================
+   CONTORNO PRETO AO CLICAR
+   ============================================================ */
+
 .copy-button:active {
+
+  border:
+    3px solid #111111;
+
+  box-shadow:
+    0 0 0 1px #111111;
+
   transform: scale(0.99);
 }
 
-.copy-button:disabled {
-  opacity: 0.55;
-  cursor: default;
+
+/* Mantém o contorno enquanto estiver focado */
+
+.copy-button:focus-visible {
+
+  border:
+    3px solid #111111;
+
+  box-shadow:
+    0 0 0 1px #111111;
 }
 
 
-/* =========================
+/* ============================================================
    CELULAR
-   ========================= */
+   ============================================================ */
 
-@media (max-width: 390px) {
+@media (max-width: 600px) {
 
   .header {
-    height: 105px;
-    padding-bottom: 17px;
+
+    height: 70px;
+
+    padding:
+      0 12px;
   }
+
 
   .header-title {
-    font-size: 19px;
+
+    font-size: 21px;
   }
 
-  .back {
-    left: 15px;
-    bottom: 13px;
-    font-size: 33px;
-  }
 
   .dark-bar {
-    height: 43px;
+
+    height: 46px;
   }
+
 
   .payment {
-    padding: 22px 15px 22px;
+
+    padding:
+      30px 18px 55px;
   }
+
 
   .amount {
-    font-size: 23px;
-    margin-bottom: 18px;
+
+    margin-bottom: 28px;
+
+    font-size: 28px;
   }
+
 
   .qrcode {
-    width: 165px;
-    height: 165px;
-    margin-bottom: 19px;
+
+    margin-bottom: 30px;
   }
+
+
+  .qrcode svg {
+
+    width:
+      min(285px, 70vw) !important;
+  }
+
 
   .instructions-title {
-    font-size: 17px;
-    margin-bottom: 9px;
+
+    margin-bottom: 16px;
+
+    font-size: 24px;
   }
+
 
   .instructions {
-    font-size: 14px;
-    line-height: 1.3;
+
+    margin-bottom: 28px;
+
+    font-size: 18px;
+
+    line-height: 1.45;
   }
+
 
   .no-refresh {
-    margin-top: 16px;
-    font-size: 14px;
+
+    margin-bottom: 26px;
+
+    font-size: 18px;
   }
+
 
   .remaining {
-    margin-top: 13px;
-    font-size: 14px;
+
+    margin-bottom: 30px;
+
+    font-size: 18px;
   }
 
+
   .copy-button {
-    height: 52px;
-    margin-top: 17px;
-    font-size: 19px;
+
+    min-height: 68px;
+
+    font-size: 24px;
+
+    border-radius: 38px;
   }
+
 }
 
 
-/* =========================
-   CELULAR COM TELA BAIXA
-   ========================= */
+/* ============================================================
+   CELULAR PEQUENO
+   ============================================================ */
 
-@media (max-height: 750px) {
+@media (max-width: 380px) {
 
   .header {
-    height: 95px;
-    padding-bottom: 14px;
+
+    height: 64px;
   }
+
 
   .header-title {
+
     font-size: 18px;
   }
 
-  .back {
-    bottom: 11px;
-    font-size: 30px;
-  }
 
   .dark-bar {
-    height: 40px;
+
+    height: 42px;
   }
+
 
   .payment {
-    padding-top: 18px;
+
+    padding:
+      26px 15px 45px;
   }
+
 
   .amount {
-    font-size: 22px;
-    margin-bottom: 16px;
+
+    font-size: 25px;
   }
 
-  .qrcode {
-    width: 150px;
-    height: 150px;
-    margin-bottom: 17px;
+
+  .qrcode svg {
+
+    width:
+      min(260px, 70vw) !important;
   }
+
 
   .instructions-title {
-    font-size: 16px;
-    margin-bottom: 8px;
+
+    font-size: 21px;
   }
+
 
   .instructions {
-    font-size: 13px;
-    line-height: 1.28;
+
+    font-size: 16px;
   }
 
-  .no-refresh {
-    margin-top: 13px;
-    font-size: 13px;
-  }
 
+  .no-refresh,
   .remaining {
-    margin-top: 11px;
-    font-size: 13px;
+
+    font-size: 16px;
   }
+
 
   .copy-button {
-    height: 48px;
-    margin-top: 14px;
-    font-size: 18px;
+
+    min-height: 62px;
+
+    font-size: 21px;
   }
+
 }
