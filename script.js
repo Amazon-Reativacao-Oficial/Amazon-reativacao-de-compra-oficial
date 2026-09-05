@@ -12,10 +12,10 @@ const CONFIG = {
 
 
 /* ============================================================
-   INICIAR QUANDO A PÁGINA ESTIVER PRONTA
+   INICIAR PÁGINA
    ============================================================ */
 
-document.addEventListener("DOMContentLoaded", function () {
+function iniciarPagamento() {
 
   const amountElement = document.getElementById("amount");
   const qrElement = document.getElementById("qrcode");
@@ -36,18 +36,13 @@ document.addEventListener("DOMContentLoaded", function () {
      VALOR
      ========================================================== */
 
-  function renderAmount() {
+  if (amountElement) {
 
-    if (!amountElement) {
-      return;
-    }
-
-    const valor = Number(CONFIG.amount);
-
-    const valorFormatado = valor.toLocaleString("pt-BR", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2
-    });
+    const valorFormatado =
+      Number(CONFIG.amount).toLocaleString("pt-BR", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      });
 
     amountElement.textContent =
       "Total a pagar: R$ " + valorFormatado;
@@ -55,23 +50,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ==========================================================
-     QR CODE
+     GERAR QR CODE
      ========================================================== */
 
-  function renderQrCode() {
+  function gerarQRCode() {
 
     if (!qrElement) {
-      console.error("Elemento #qrcode não encontrado.");
+      console.error("Elemento qrcode não encontrado.");
       return;
     }
 
-    qrElement.innerHTML = "";
-
-    const pixCode =
+    const pix =
       String(CONFIG.pixCode || "").trim();
 
+    qrElement.innerHTML = "";
 
-    if (!pixCode) {
+
+    if (!pix) {
 
       qrElement.textContent =
         "Código PIX não configurado.";
@@ -80,15 +75,14 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
-    /* Verifica se a biblioteca foi carregada */
-
-    if (typeof qrcode !== "function") {
+    if (typeof window.qrcode !== "function") {
 
       qrElement.textContent =
-        "Gerador de QR Code não carregado.";
+        "Carregando QR Code...";
 
-      console.error(
-        "A biblioteca qrcode-generator não foi carregada."
+      setTimeout(
+        gerarQRCode,
+        500
       );
 
       return;
@@ -97,14 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     try {
 
-      /*
-        L = menor correção,
-        permitindo um QR mais compacto.
-      */
+      const qr =
+        window.qrcode(0, "M");
 
-      const qr = qrcode(0, "L");
 
-      qr.addData(pixCode);
+      qr.addData(pix);
 
       qr.make();
 
@@ -125,25 +116,29 @@ document.addEventListener("DOMContentLoaded", function () {
 
         svg.style.display = "block";
 
-        svg.style.width = "320px";
+        svg.style.width =
+          "min(300px, 72vw)";
 
-        svg.style.height = "320px";
+        svg.style.height =
+          "auto";
 
-        svg.style.maxWidth = "100%";
+        svg.style.maxWidth =
+          "100%";
 
-        svg.style.maxHeight = "100%";
+        svg.style.margin =
+          "0 auto";
 
       }
 
 
-    } catch (error) {
+    } catch (erro) {
 
       console.error(
         "Erro ao gerar QR Code:",
-        error
+        erro
       );
 
-      qrElement.textContent =
+      qrElement.innerHTML =
         "Não foi possível gerar o QR Code.";
 
     }
@@ -151,16 +146,19 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
 
+  gerarQRCode();
+
+
   /* ==========================================================
-     CRONÔMETRO
+     CRONÔMETRO — 10 MINUTOS
      ========================================================== */
 
-  let tempoRestante = 10 * 60;
+  let segundosRestantes = 10 * 60;
 
-  let timerInterval = null;
+  let intervalo = null;
 
 
-  function updateTimer() {
+  function atualizarCronometro() {
 
     if (!timerElement) {
       return;
@@ -168,11 +166,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     const minutos =
-      Math.floor(tempoRestante / 60);
+      Math.floor(
+        segundosRestantes / 60
+      );
 
 
     const segundos =
-      tempoRestante % 60;
+      segundosRestantes % 60;
 
 
     timerElement.textContent =
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
       String(segundos).padStart(2, "0");
 
 
-    if (tempoRestante <= 0) {
+    if (segundosRestantes <= 0) {
 
       timerElement.textContent =
         "00:00";
@@ -192,31 +192,45 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
 
-      if (timerInterval) {
-        clearInterval(timerInterval);
+      if (intervalo) {
+        clearInterval(intervalo);
       }
-
 
       return;
     }
 
 
-    tempoRestante--;
+    segundosRestantes--;
 
   }
+
+
+  atualizarCronometro();
+
+
+  intervalo =
+    setInterval(
+      atualizarCronometro,
+      1000
+    );
 
 
   /* ==========================================================
      COPIAR PIX
      ========================================================== */
 
-  async function copyPixCode() {
+  async function copiarPIX() {
 
-    const pixCode =
+    if (segundosRestantes <= 0) {
+      return;
+    }
+
+
+    const pix =
       String(CONFIG.pixCode || "").trim();
 
 
-    if (!pixCode) {
+    if (!pix) {
       return;
     }
 
@@ -228,48 +242,32 @@ document.addEventListener("DOMContentLoaded", function () {
         window.isSecureContext
       ) {
 
-        await navigator.clipboard.writeText(
-          pixCode
-        );
+        await navigator.clipboard.writeText(pix);
 
       } else {
 
-        fallbackCopy(pixCode);
+        copiarAlternativo(pix);
 
       }
 
 
-      if (copyStatus) {
-
-        copyStatus.textContent =
-          "Código PIX copiado.";
-
-      }
+      mostrarCopiado();
 
 
-    } catch (error) {
+    } catch (erro) {
 
       try {
 
-        fallbackCopy(pixCode);
+        copiarAlternativo(pix);
 
+        mostrarCopiado();
 
-        if (copyStatus) {
+      } catch (erro2) {
 
-          copyStatus.textContent =
-            "Código PIX copiado.";
-
-        }
-
-
-      } catch (error2) {
-
-        if (copyStatus) {
-
-          copyStatus.textContent =
-            "Não foi possível copiar.";
-
-        }
+        console.error(
+          "Erro ao copiar PIX:",
+          erro2
+        );
 
       }
 
@@ -282,21 +280,27 @@ document.addEventListener("DOMContentLoaded", function () {
      CÓPIA ALTERNATIVA
      ========================================================== */
 
-  function fallbackCopy(text) {
+  function copiarAlternativo(texto) {
 
     const textarea =
       document.createElement("textarea");
 
 
-    textarea.value = text;
+    textarea.value =
+      texto;
 
-    textarea.style.position = "fixed";
 
-    textarea.style.left = "-9999px";
+    textarea.style.position =
+      "fixed";
 
-    textarea.style.top = "0";
+    textarea.style.left =
+      "-9999px";
 
-    textarea.style.opacity = "0";
+    textarea.style.top =
+      "0";
+
+    textarea.style.opacity =
+      "0";
 
 
     document.body.appendChild(
@@ -314,17 +318,17 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
-    const resultado =
+    const sucesso =
       document.execCommand("copy");
 
 
     textarea.remove();
 
 
-    if (!resultado) {
+    if (!sucesso) {
 
       throw new Error(
-        "Falha ao copiar"
+        "Não foi possível copiar."
       );
 
     }
@@ -333,43 +337,64 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
   /* ==========================================================
-     BOTÃO
+     MENSAGEM
      ========================================================== */
 
-  if (copyButton) {
+  function mostrarCopiado() {
 
-    copyButton.addEventListener(
-      "click",
-      copyPixCode
+    if (!copyStatus) {
+      return;
+    }
+
+
+    copyStatus.textContent =
+      "Código PIX copiado.";
+
+
+    setTimeout(
+      function () {
+
+        copyStatus.textContent =
+          "";
+
+      },
+      2000
     );
 
   }
 
 
   /* ==========================================================
-     INICIALIZAR TUDO
+     BOTÃO COPIAR
      ========================================================== */
 
-  renderAmount();
+  if (copyButton) {
 
-  renderQrCode();
-
-
-  /*
-    Mostra imediatamente 10:00
-  */
-
-  updateTimer();
-
-
-  /*
-    Depois atualiza a cada segundo
-  */
-
-  timerInterval =
-    setInterval(
-      updateTimer,
-      1000
+    copyButton.addEventListener(
+      "click",
+      copiarPIX
     );
 
-});
+  }
+
+}
+
+
+/* ============================================================
+   ESPERAR HTML CARREGAR
+   ============================================================ */
+
+if (
+  document.readyState === "loading"
+) {
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    iniciarPagamento
+  );
+
+} else {
+
+  iniciarPagamento();
+
+}
