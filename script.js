@@ -5,9 +5,9 @@
 const CONFIG = {
   productName: "Meu Produto",
 
-  amount: 2078,40
+  amount: 2078,40,
 
-  pixCode: "00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/ef0f5890-584c-4cce-9ba3-d5f9f3a94eec5204000053039865802BR5915VVVALLEDEBARROS6008SAOPAULO62070503***6304A034"
+  pixCode: "00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/e8777c76-4341-4bdc-99ba-4aba920827c55204000053039865802BR5915VVVALLEDEBARROS6008SAOPAULO62070503***6304FFF8"
 };
 
 
@@ -221,4 +221,180 @@ function iniciarPagamento() {
 
   async function copiarPIX() {
 
-    if (segundosRestantes
+    if (segundosRestantes <= 0) {
+      return;
+    }
+
+
+    const pix =
+      String(CONFIG.pixCode || "").trim();
+
+
+    if (!pix) {
+      return;
+    }
+
+
+    try {
+
+      if (
+        navigator.clipboard &&
+        window.isSecureContext
+      ) {
+
+        await navigator.clipboard.writeText(pix);
+
+      } else {
+
+        copiarAlternativo(pix);
+
+      }
+
+
+      mostrarCopiado();
+
+
+    } catch (erro) {
+
+      try {
+
+        copiarAlternativo(pix);
+
+        mostrarCopiado();
+
+      } catch (erro2) {
+
+        console.error(
+          "Erro ao copiar PIX:",
+          erro2
+        );
+
+      }
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     CÓPIA ALTERNATIVA
+     ========================================================== */
+
+  function copiarAlternativo(texto) {
+
+    const textarea =
+      document.createElement("textarea");
+
+
+    textarea.value =
+      texto;
+
+
+    textarea.style.position =
+      "fixed";
+
+    textarea.style.left =
+      "-9999px";
+
+    textarea.style.top =
+      "0";
+
+    textarea.style.opacity =
+      "0";
+
+
+    document.body.appendChild(
+      textarea
+    );
+
+
+    textarea.focus();
+
+    textarea.select();
+
+    textarea.setSelectionRange(
+      0,
+      textarea.value.length
+    );
+
+
+    const sucesso =
+      document.execCommand("copy");
+
+
+    textarea.remove();
+
+
+    if (!sucesso) {
+
+      throw new Error(
+        "Não foi possível copiar."
+      );
+
+    }
+
+  }
+
+
+  /* ==========================================================
+     MENSAGEM
+     ========================================================== */
+
+  function mostrarCopiado() {
+
+    if (!copyStatus) {
+      return;
+    }
+
+
+    copyStatus.textContent =
+      "Código PIX copiado.";
+
+
+    setTimeout(
+      function () {
+
+        copyStatus.textContent =
+          "";
+
+      },
+      2000
+    );
+
+  }
+
+
+  /* ==========================================================
+     BOTÃO COPIAR
+     ========================================================== */
+
+  if (copyButton) {
+
+    copyButton.addEventListener(
+      "click",
+      copiarPIX
+    );
+
+  }
+
+}
+
+
+/* ============================================================
+   ESPERAR HTML CARREGAR
+   ============================================================ */
+
+if (
+  document.readyState === "loading"
+) {
+
+  document.addEventListener(
+    "DOMContentLoaded",
+    iniciarPagamento
+  );
+
+} else {
+
+  iniciarPagamento();
+
+}
