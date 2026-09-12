@@ -5,8 +5,10 @@
 const CONFIG = {
   productName: "Meu Produto",
 
-  amount: 2078,40,
+  // VALOR
+  amount: 2078.40,
 
+  // PIX COPIA E COLA
   pixCode: "00020101021226820014br.gov.bcb.pix2560qrcode.a55scd.com.br/v1/e8777c76-4341-4bdc-99ba-4aba920827c55204000053039865802BR5915VVVALLEDEBARROS6008SAOPAULO62070503***6304FFF8"
 };
 
@@ -21,7 +23,6 @@ function iniciarPagamento() {
   const qrElement = document.getElementById("qrcode");
   const timerElement = document.getElementById("timer");
   const copyButton = document.getElementById("copyButton");
-  const copyStatus = document.getElementById("copyStatus");
 
 
   /* ==========================================================
@@ -56,7 +57,7 @@ function iniciarPagamento() {
   function gerarQRCode() {
 
     if (!qrElement) {
-      console.error("Elemento qrcode não encontrado.");
+      console.error("Elemento #qrcode não encontrado.");
       return;
     }
 
@@ -67,10 +68,8 @@ function iniciarPagamento() {
 
 
     if (!pix) {
-
       qrElement.textContent =
         "Código PIX não configurado.";
-
       return;
     }
 
@@ -94,9 +93,7 @@ function iniciarPagamento() {
       const qr =
         window.qrcode(0, "M");
 
-
       qr.addData(pix);
-
       qr.make();
 
 
@@ -115,18 +112,10 @@ function iniciarPagamento() {
       if (svg) {
 
         svg.style.display = "block";
-
-        svg.style.width =
-          "min(300px, 72vw)";
-
-        svg.style.height =
-          "auto";
-
-        svg.style.maxWidth =
-          "100%";
-
-        svg.style.margin =
-          "0 auto";
+        svg.style.width = "min(300px, 72vw)";
+        svg.style.height = "auto";
+        svg.style.maxWidth = "100%";
+        svg.style.margin = "0 auto";
 
       }
 
@@ -138,7 +127,7 @@ function iniciarPagamento() {
         erro
       );
 
-      qrElement.innerHTML =
+      qrElement.textContent =
         "Não foi possível gerar o QR Code.";
 
     }
@@ -251,7 +240,8 @@ function iniciarPagamento() {
       }
 
 
-      mostrarCopiado();
+      // Apenas contorno preto no botão
+      copyButton.classList.add("copiado");
 
 
     } catch (erro) {
@@ -260,7 +250,7 @@ function iniciarPagamento() {
 
         copiarAlternativo(pix);
 
-        mostrarCopiado();
+        copyButton.classList.add("copiado");
 
       } catch (erro2) {
 
@@ -288,7 +278,6 @@ function iniciarPagamento() {
 
     textarea.value =
       texto;
-
 
     textarea.style.position =
       "fixed";
@@ -332,34 +321,6 @@ function iniciarPagamento() {
       );
 
     }
-
-  }
-
-
-  /* ==========================================================
-     MENSAGEM
-     ========================================================== */
-
-  function mostrarCopiado() {
-
-    if (!copyStatus) {
-      return;
-    }
-
-
-    copyStatus.textContent =
-      "Código PIX copiado.";
-
-
-    setTimeout(
-      function () {
-
-        copyStatus.textContent =
-          "";
-
-      },
-      2000
-    );
 
   }
 
